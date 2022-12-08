@@ -1,41 +1,30 @@
 // @ts-check
+/// <reference path="index.d.ts" />
 
-function _handleErrors(min, max, funcType) {
-     if (!max) 
-        throw new Error('Missing argument \'max\'. ');
-    else if (typeof max !== 'number')
-        throw new TypeError(
-            'Argument \'max\' must be a number. '
-        );
-        else if (max.toString().includes('.') && funcType === 'i')
-            throw new TypeError(
-                'Argument \'max\' must be an integer. '
-            );
-        else if (!min)
-            return Math.floor(Math.random() * max);
-        else if (typeof min !== 'number')
-            throw new TypeError(
-                'Argument \'min\' must be a number. '
-            );
-        else if (min.toString().includes('.') && funcType === 'i')
-            throw new TypeError(
-                'Argument \'min\' must be an integer. '
-            );
-        else if (min > max)
-            throw new RangeError(
-                'Argument \'min\' must be less than argument \'max\'. '
-            );
-}
+const { assert, assertType } = require('@santi100/assertion-lib/cjs')
+
 function random(max, min = 0) {
-        _handleErrors(min, max, 'i')
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    
+    assertType(max, 'number'); assertType(min, 'number');
+    assert(max > min && Number.isInteger(max), {
+        expected: true,
+        actual: min > max && Number.isInteger(max),
+        operator: '> && Number.isInteger()'
+    });
+    if (!min) return Math.floor(Math.random() * max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function randomFloat(max, min = 0.0) {
-    _handleErrors(min, max, 'f')
+    assertType(max, 'number'); assertType(min, 'number');
+    assert(max > min, {
+        expected: true,
+        actual: max > min,
+        operator: '>'
+    });
+    if (!min) return Math.floor(Math.random() * max);
     return (Math.random() * (max - min + 1.0)) + min;
 }
-const randomFromArray = (/** @type {unknown[]} */ array) => array[random(array.length)];
+const randomFromArray = array => array[random(array.length)];
+
 
 exports.random = random;
 exports.randomFloat = randomFloat; 
