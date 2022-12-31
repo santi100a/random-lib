@@ -21,7 +21,6 @@ jobs:
 
       - name: Install custom version of Git
         run: |
-            sudo apt-get update
             sudo apt-get install git=2.34.1
       - name: Install dependencies
         run: yarn
