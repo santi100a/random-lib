@@ -26,4 +26,4 @@ jobs:
 
       - name: Publish to NPM with custom script
         run: |
-          /usr/bin/git diff --name-only HEAD | grep '^ M' --color=none | awk '{print $2}' | sed -n '/\.[d]\.ts$\|\.js$\|\package.json\|tests\/.*/p' | python3 publish.py
+          /usr/bin/git diff --name-only HEAD | grep '^ M' --color=none | awk '{print $2}' | sed -n '/\.[d]\.ts$\|\.js$\|\package.json\|tests\/.*/p' | python3 publish.py 
