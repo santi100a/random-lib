@@ -5,26 +5,44 @@ const { assert, assertType } = require('@santi100/assertion-lib/cjs')
 
 function random(max, min = 0) {
     assertType(max, 'number'); assertType(min, 'number');
-    assert(max > min && Number.isInteger(max), {
-        expected: true,
-        actual: min > max && Number.isInteger(max),
-        operator: '> && Number.isInteger()'
-    });
+    const CONDITION = (max > 0 ? 
+            max > min : 
+            max > (Number.NEGATIVE_INFINITY || -Infinity))
+         && Number.isInteger(max);
+    assert(
+        CONDITION, 
+        {
+            expected: true,
+            actual: CONDITION,
+            operator: '==='
+        }
+    );
     if (!min) return Math.floor(Math.random() * max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function randomFloat(max, min = 0.0) {
     assertType(max, 'number'); assertType(min, 'number');
-    assert(max > min, {
+    const CONDITION = (max > 0.0 ? 
+        max > min : 
+        max > (Number.NEGATIVE_INFINITY || -Infinity))
+    assert(CONDITION, {
         expected: true,
-        actual: max > min,
+        actual: CONDITION,
         operator: '>'
     });
-    if (!min) return Math.floor(Math.random() * max);
+    if (!min) return Math.random() * max;
     return (Math.random() * (max - min + 1.0)) + min;
 }
-const randomFromArray = array => array[random(array.length)];
+const randomFromArray = array => {
+    const CONDITION = Array.isArray(array);
+    assert(CONDITION, { 
+        expected: true,
+        actual: CONDITION,
+        operator: 'Array.isArray()'
+    });
 
+    return array[random(array.length)];
+};
 
 exports.random = random;
 exports.randomFloat = randomFloat; 

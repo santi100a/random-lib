@@ -6,5 +6,13 @@
   "type": "module",
   "dependencies": {
     "@santi100/assertion-lib": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.5",
+    "jest": "^29.3.1"
+  },
+  "scripts": {
+    "test": "jest --verbose",
+    "test:watch": "jest --verbose --watch --watchAll"
   }
 }
