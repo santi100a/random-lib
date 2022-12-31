@@ -18,6 +18,11 @@ jobs:
           registry-url: https://registry.npmjs.org
           token: ${{ secrets.NPM_AUTH_TOKEN }}
 
+
+      - name: Install custom version of Git
+        run: |
+            sudo apt-get update
+            sudo apt-get install git
       - name: Install dependencies
         run: yarn
 
