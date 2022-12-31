@@ -1,6 +1,6 @@
 {
   "name": "@santi100/random-lib",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "main": "index.js",
   "license": "Other",
   "type": "module",
@@ -14,5 +14,8 @@
   "scripts": {
     "test": "jest --verbose",
     "test:watch": "jest --verbose --watch --watchAll"
+  },
+  "repository": {
+    "url": "https://github.com/santi100a/random-lib"
   }
 }
