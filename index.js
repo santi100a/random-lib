@@ -7,7 +7,7 @@ function random(max, min = 0) {
     assertType(max, 'number'); assertType(min, 'number');
     assert(max > min && Number.isInteger(max), {
         expected: true,
-        actual: min > max && Number.isInteger(max),
+        actual: max > min && Number.isInteger(max),
         operator: '> && Number.isInteger()'
     });
     if (!min) return Math.floor(Math.random() * max);

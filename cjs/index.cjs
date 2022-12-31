@@ -1,5 +1,5 @@
 // @ts-check
-/// <reference path="index.d.ts" />
+/// <reference path="index.d.cts" />
 
 const { assert, assertType } = require('@santi100/assertion-lib/cjs')
 
