@@ -1,4 +1,4 @@
-const { randomFloat } = require('../cjs/index.cjs');
+const { randomFloat } = require('../cjs/index.js');
 
 test('the output is a float', () => {
     const result = randomFloat(356.4);

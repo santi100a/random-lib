@@ -1,17 +1,25 @@
-name: random-lib CI
+name: random-lib CI/CD
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - .github/workflows/*.*
+      - ./index.*
+      - tests/*.test.js
   pull_request:
     branches: [ main ]
+    paths:
+      - .github/workflows/*.*
+      - ./index.*
+      - tests/*.test.js
 
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16.x
           always-auth: true
@@ -21,9 +29,12 @@ jobs:
       - name: Install dependencies
         run: yarn
 
+      - name: Build source code
+        run: yarn build
+
       - name: Run test suites
         run: yarn test
 
-      - name: Publish to NPM with custom script
+      - name: Publish to NPM
         run: |
-          /usr/bin/git diff --name-status | grep --color=none '^M' | awk '{print $2}'| sed -n '/\.[d]\.ts$\|\.js$\|\package.json\|tests\/.*/p' | python3 publish.py
+          yarn publish --access=public

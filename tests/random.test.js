@@ -1,4 +1,4 @@
-const { random } = require('../cjs/index.cjs');
+const { random } = require('../cjs/index.js');
 const THRESHOLD = 500;
 
 test('the output is a number', () => {

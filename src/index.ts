@@ -1,9 +1,12 @@
-// @ts-check
-/// <reference path="index.d.cts" />
+import { assert, assertType } from '@santi100/assertion-lib/cjs';
 
-const { assert, assertType } = require('@santi100/assertion-lib/cjs')
-
-function random(max, min = 0) {
+/** 
+ * Returns a pseudo-random integer between min and max.
+ * @param {number} max The maximum value.
+ * @param {number?} min The minimum value (0 by default).
+ * @returns {number} A pseudo-random integer between min and max.
+ */
+function random(max: number, min: number = 0): number {
     assertType(max, 'number'); assertType(min, 'number');
     const CONDITION = (max > 0 ? 
             max > min : 
@@ -20,7 +23,7 @@ function random(max, min = 0) {
     if (!min) return Math.floor(Math.random() * max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-function randomFloat(max, min = 0.0) {
+function randomFloat(max: number, min: number = 0.0): number {
     assertType(max, 'number'); assertType(min, 'number');
     const CONDITION = (max > 0.0 ? 
         max > min : 
@@ -33,7 +36,13 @@ function randomFloat(max, min = 0.0) {
     if (!min) return Math.random() * max;
     return (Math.random() * (max - min + 1.0)) + min;
 }
-const randomFromArray = array => {
+
+/**
+ * Returns a random item from `array`.
+ * @param array The array from which you want to pick a random item.
+ * @returns A random item from the given array.
+ */
+function randomFromArray<T = unknown>(array: T[]): T {
     const CONDITION = Array.isArray(array);
     assert(CONDITION, { 
         expected: true,
@@ -44,6 +53,4 @@ const randomFromArray = array => {
     return array[random(array.length)];
 };
 
-exports.random = random;
-exports.randomFloat = randomFloat; 
-exports.randomFromArray = randomFromArray;
+export { random, randomFloat, randomFromArray };
