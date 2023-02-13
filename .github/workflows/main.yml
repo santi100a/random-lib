@@ -35,6 +35,9 @@ jobs:
       - name: Run test suites
         run: yarn test
 
+      - name: Set auth token
+        run: npm set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTH_TOKEN }}
+
       - name: Publish to NPM
         run: |
           yarn publish --access=public
