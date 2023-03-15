@@ -1,6 +1,5 @@
 {
-  "name": "@santi100/random-lib",
-  "version": "1.0.7",
-  "main": "index.cjs",
-  "license": "Other"
+  "type": "commonjs",
+  "main": "index.js",
+  "typings": "index.d.ts"
 }

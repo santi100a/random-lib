@@ -1,9 +1,10 @@
 {
   "name": "@santi100/random-lib",
-  "version": "1.1.0",
-  "main": "index.js",
+  "version": "1.1.1",
+  "main": "./cjs/index.js",
+  "module": "index.js",
   "license": "MIT",
-  "type": "module",
+  "readme": "README.md",
   "dependencies": {
     "@santi100/assertion-lib": "^1.0.5"
   },
@@ -19,6 +20,7 @@
     "dev": "tsc -w"
   },
   "repository": {
+    "type": "git",
     "url": "https://github.com/santi100a/random-lib"
   }
 }
