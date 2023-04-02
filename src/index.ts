@@ -16,7 +16,7 @@ import {
 export function random(max: number, min: number = 0): number {
 	assertType(max, 'number');
 	assertType(min, 'number');
-	assertInteger(max, 'max');
+	assertInteger(max, 'max'); 
 	assertInteger(min, 'min');
 	const CONDITION = max > 0 ? max > min : max > -Infinity;
 	assert(CONDITION, {
