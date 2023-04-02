@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.randomFloats = exports.randomIntegers = exports.randomFromArray = exports.randomFloat = exports.random = void 0;
-var cjs_1 = require("@santi100/assertion-lib/cjs");
+var assertion_lib_1 = require("@santi100/assertion-lib");
 /**
  * Returns a pseudo-random integer between min and max.
  * @param {number} max The maximum value.
@@ -10,11 +10,12 @@ var cjs_1 = require("@santi100/assertion-lib/cjs");
  */
 function random(max, min) {
     if (min === void 0) { min = 0; }
-    (0, cjs_1.assertType)(max, 'number');
-    (0, cjs_1.assertType)(min, 'number');
-    var CONDITION = (max > 0 ? max > min : max > (Number.NEGATIVE_INFINITY || -Infinity)) &&
-        Number.isInteger(max);
-    (0, cjs_1.assert)(CONDITION, {
+    (0, assertion_lib_1.assertType)(max, 'number');
+    (0, assertion_lib_1.assertType)(min, 'number');
+    (0, assertion_lib_1.assertInteger)(max, 'max');
+    (0, assertion_lib_1.assertInteger)(min, 'min');
+    var CONDITION = max > 0 ? max > min : max > -Infinity;
+    (0, assertion_lib_1.assert)(CONDITION, {
         expected: true,
         actual: CONDITION,
         operator: '==='
@@ -26,20 +27,15 @@ function random(max, min) {
 exports.random = random;
 /**
  * Returns a pseudo-random floating-point number between min and max.
- * @param {number} max The maximum value.
- * @param {number?} min The minimum value (0 by default).
- * @returns {number} A pseudo-random floating-point number between min and max.
+ * @param max The maximum value.
+ * @param min The minimum value (0 by default).
+ * @returns A pseudo-random floating-point number between min and max.
  */
 function randomFloat(max, min) {
     if (min === void 0) { min = 0.0; }
-    (0, cjs_1.assertType)(max, 'number');
-    (0, cjs_1.assertType)(min, 'number');
-    var CONDITION = max > 0.0 ? max > min : max > (Number.NEGATIVE_INFINITY || -Infinity);
-    (0, cjs_1.assert)(CONDITION, {
-        expected: true,
-        actual: CONDITION,
-        operator: '>'
-    });
+    (0, assertion_lib_1.assertTypeOf)(max, 'number', 'max');
+    (0, assertion_lib_1.assertTypeOf)(min, 'number', 'min');
+    (0, assertion_lib_1.assertMax)(min, 'min', max - 1);
     if (!min)
         return Math.random() * max;
     return Math.random() * (max - min + 1.0) + min;
@@ -50,23 +46,34 @@ function __isArray(arr) {
     return ((_a = Array === null || Array === void 0 ? void 0 : Array.isArray) === null || _a === void 0 ? void 0 : _a.call(Array, arr)) || arr instanceof Array;
 }
 /**
- * Returns a random item from `array`.
+ * Returns a/some random item(s) from `array`.
  * @param array The array from which you want to pick a random item.
  * @returns A random item from the given array.
  */
-function randomFromArray(array) {
+function randomFromArray(array, amount) {
+    if (amount === void 0) { amount = 1; }
     var isArray = __isArray(array);
     var isNotEmpty = array.length !== 0;
-    (0, cjs_1.assert)(isArray, {
+    (0, assertion_lib_1.assertMin)(array.length, 'array.length', 0);
+    (0, assertion_lib_1.assert)(isArray, {
         expected: true,
         actual: isArray,
         operator: '__isArray()'
     });
-    (0, cjs_1.assert)(isNotEmpty, {
+    (0, assertion_lib_1.assert)(isNotEmpty, {
         expected: true,
         actual: isNotEmpty,
         operator: '==='
     });
+    (0, assertion_lib_1.assertTypeOf)(amount, 'number', 'amount');
+    (0, assertion_lib_1.assertMin)(amount, 'amount', 1);
+    if (amount > 1) {
+        var items = [];
+        for (var i = 0; i < amount; i++) {
+            items.push(array[random(array.length)]);
+        }
+        return items;
+    }
     return array[random(array.length)];
 }
 exports.randomFromArray = randomFromArray;
@@ -93,22 +100,14 @@ exports.randomIntegers = randomIntegers;
 function __isNullOrUndefined(a) {
     return a === null || a === undefined;
 }
-function __isInteger(num) {
-    var _a;
-    return (((_a = Number === null || Number === void 0 ? void 0 : Number.isInteger) === null || _a === void 0 ? void 0 : _a.call(Number, num)) ||
-        (num < 0 ? Math.ceil(num) : Math.floor(num)) === num);
-}
 function __checkRandomArraysErrors(amount, opts) {
-    if (typeof amount !== 'number')
-        throw new TypeError("\"amount\" must be a number. Got \"".concat(amount, "\" of type \"").concat(typeof amount, "\"."));
-    if (amount < 0)
-        throw new RangeError("\"amount\" must be positive or zero. Got \"".concat(amount, "\"."));
-    if (!__isInteger(amount))
-        throw new RangeError("\"amount\" must be an integer. Got \"".concat(amount, "\"."));
-    if (!__isNullOrUndefined(opts.max) && typeof opts.max !== 'number')
-        throw new TypeError("\"opts.max\", if specified, must be a number. Got \"".concat(opts.max, "\" of type \"").concat(typeof opts.max, "\"."));
-    if (!__isNullOrUndefined(opts.min) && typeof opts.min !== 'number')
-        throw new TypeError("\"opts.min\", if specified, must be a number. Got \"".concat(opts.min, "\" of type \"").concat(typeof opts.min, "\"."));
+    (0, assertion_lib_1.assertTypeOf)(amount, 'number', 'amount');
+    if (!__isNullOrUndefined(opts.max))
+        (0, assertion_lib_1.assertTypeOf)(opts.max, 'number', 'opts.max');
+    if (!__isNullOrUndefined(opts.min))
+        (0, assertion_lib_1.assertTypeOf)(opts.min, 'number', 'opts.min');
+    (0, assertion_lib_1.assertMin)(amount, 'amount', 0);
+    (0, assertion_lib_1.assertInteger)(amount, 'amount');
 }
 /**
  * Returns an array with `amount` random floating-point numbers.

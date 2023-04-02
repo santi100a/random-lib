@@ -8,16 +8,16 @@ describe('randomFloats and randomIntegers test suites', () => {
                 }).toThrow(TypeError);
             });
 
-            test('throws a RangeError if amount is negative', () => {
+            test('throws a TypeError if amount is negative', () => {
                 expect(() => {
                     randomIntegers(-1);
-                }).toThrow(RangeError);
+                }).toThrow(TypeError);
             });
 
-            test('throws a RangeError if amount is not an integer', () => {
+            test('throws a TypeError if amount is not an integer', () => {
                 expect(() => {
                     randomIntegers(3.5);
-                }).toThrow(RangeError);
+                }).toThrow(TypeError);
             });
 
             test('throws a TypeError if opts.max is not a number', () => {
@@ -40,16 +40,16 @@ describe('randomFloats and randomIntegers test suites', () => {
                 }).toThrow(TypeError);
             });
 
-            test('throws a RangeError if amount is negative', () => {
+            test('throws a TypeError if amount is negative', () => {
                 expect(() => {
                     randomFloats(-1);
-                }).toThrow(RangeError);
+                }).toThrow(TypeError);
             });
 
-            test('throws a RangeError if amount is not an integer', () => {
+            test('throws a TypeError if amount is not an integer', () => {
                 expect(() => {
                     randomFloats(3.5);
-                }).toThrow(RangeError);
+                }).toThrow(TypeError);
             });
 
             test('throws a TypeError if opts.max is not a number', () => {
