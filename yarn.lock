@@ -546,10 +546,17 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@santi100/assertion-lib@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@santi100/assertion-lib/-/assertion-lib-1.0.5.tgz#161915b8241b80c6ebd7546ddad731ce9c57860c"
-  integrity sha512-J2DCaTL8fwxmRz+SuOmPJtkINV/5wYrQfW0RPPVrcZuOTzWwS7A+jRIMtcYT2bHHeXv19NfC68bWfpcXqaOyVg==
+"@santi100/assertion-lib@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@santi100/assertion-lib/-/assertion-lib-1.0.6.tgz#ead156f98a2265100dd6529a3d393b3ed54b8561"
+  integrity sha512-z6MOEeIXTp+SJsBrWO0ezUFaPuYeblyZC1CDohADKm1/LkNsUOStumirCGbFKGQAD8Z3Br6rRkhqGFKHzSOWeQ==
+  dependencies:
+    "@santi100/equal-lib" "^1.0.8"
+
+"@santi100/equal-lib@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@santi100/equal-lib/-/equal-lib-1.0.8.tgz#967f8ca71a6cfc02f416b110f8b697a1b6cfc6ea"
+  integrity sha512-8PKrb9Nrm/JTf6h7Att7dj7PzxxuDe3OJ6wIXq4PA0CWOXr91QFNB/VVvfmLKwjdN9pNgSyv2jKB7uXbk8HICg==
 
 "@sinclair/typebox@^0.25.16":
   version "0.25.24"

@@ -32,7 +32,7 @@ test('the output is not bigger than the threshold', () => {
 });
 test('the function must accept negative numbers', () => {
     try { 
-        random(-THRESHOLD);
+        random(-THRESHOLD, -1);
     } catch (err) { 
         fail(err);
     }

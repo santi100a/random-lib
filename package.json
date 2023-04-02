@@ -6,7 +6,7 @@
   "license": "MIT",
   "readme": "README.md",
   "dependencies": {
-    "@santi100/assertion-lib": "^1.0.5"
+    "@santi100/assertion-lib": "^1.0.6"
   },
   "devDependencies": {
     "@types/jest": "^29.4.1",
