@@ -8,6 +8,8 @@
   "dependencies": {
     "@santi100/assertion-lib": "^1.0.6"
   },
+  "keywords": ["random", "lightweight", "es3"],
+  "description": "Santi's Random Library: Randomize pretty much everything!",
   "devDependencies": {
     "@types/jest": "^29.4.1",
     "jest": "^29.5.0",
