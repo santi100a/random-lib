@@ -34,5 +34,41 @@ Returns `amount` random uppercase letters.
 Returns `amount` random letters.
 ## Usage
 ```typescript
-import { random } from '@santi100/random-lib'; // ESM
-const { random } = require('@santi100/random-lib'); // CJS
+import { random, randomFromArray, randomIntegers, randomFloats } from '@santi100/random-lib'; // ESM
+const { random, randomFromArray, randomIntegers, randomFloats } = require('@santi100/random-lib'); // CJS
+
+
+// Generate a random integer between 1 and 10
+const randomInt = random(10, 1);
+
+// Generate a random floating-point number between -5.0 and 5.0
+const randomFloat = randomFloat(-5.0, 5.0);
+
+// Get a random item from an array
+const fruits = ['apple', 'banana', 'orange'];
+const randomFruit = randomFromArray(fruits);
+
+// Get three random integers between 1 and 100
+const randomIntegers = randomIntegers(3, { max: 100, min: 1 });
+
+// Get four random floating-point numbers between -10.0 and 10.0
+const randomFloats = randomFloats(4, { max: 10.0, min: -10.0 });
+
+const myRandomLowercaseLetter = randomLower();
+console.log(myRandomLowercaseLetter); // outputs a random lowercase letter (e.g. 'c')
+
+const myRandomUppercaseLetter = randomUpper();
+console.log(myRandomUppercaseLetter); // outputs a random uppercase letter (e.g. 'H')
+
+const myRandomLetter = randomLetter();
+console.log(myRandomLetter); // outputs a random letter (either lowercase or uppercase, e.g. 'J')
+
+const myRandomLowercaseLetters = randomLowers(5);
+console.log(myRandomLowercaseLetters); // outputs an array of 5 random lowercase letters (e.g. ['d', 's', 't', 'a', 'f'])
+
+const myRandomUppercaseLetters = randomUppers(10);
+console.log(myRandomUppercaseLetters); // outputs an array of 10 random uppercase letters (e.g. ['A', 'B', 'F', 'G', 'K', 'R', 'Q', 'Z', 'X', 'N'])
+
+const myRandomLetters = randomLetters(3);
+console.log(myRandomLetters); // outputs an array of 3 random letters (either lowercase or uppercase, e.g. ['e', 'W', 'T'])
+```
