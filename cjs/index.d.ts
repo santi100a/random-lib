@@ -50,4 +50,34 @@ export declare function randomIntegers(amount?: number, opts?: RandomArraysOptio
  * @returns An array of random integers.
  */
 export declare function randomFloats(amount?: number, opts?: RandomArraysOptions): number[];
+/**
+ * Returns a random lowercase letter.
+ * @returns A random lowercase letter.
+ */
+export declare function randomLower(): string;
+/**
+ * Returns a random uppercase letter.
+ * @returns A random uppercase letter.
+ */
+export declare function randomUpper(): string;
+/**
+ * Returns a random letter.
+ * @returns A random letter.
+ */
+export declare function randomLetter(): string;
+/**
+ * Returns `amount` random lowercase letters.
+ * @returns An array of random lowercase letters.
+ */
+export declare function randomLowers(amount: number): string[];
+/**
+ * Returns `amount` random uppercase letters.
+ * @returns An array of random uppercase letters.
+ */
+export declare function randomUppers(amount: number): string[];
+/**
+ * Returns `amount` random letters.
+ * @returns An array of random letters.
+ */
+export declare function randomLetters(amount: number): string[];
 export {};

@@ -20,7 +20,7 @@ describe('randomFromArray', () => {
 		});
 
 		test('throws an error if array parameter is an empty array', () => {
-			expect(() => randomFromArray([])).toThrowError();
+			expect(() => randomFromArray([])).toThrow(RangeError);
 		});
 	});
 	test('it can produce an array if an amount is specified', () => {

@@ -1,6 +1,15 @@
 "use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 exports.__esModule = true;
-exports.randomFloats = exports.randomIntegers = exports.randomFromArray = exports.randomFloat = exports.random = void 0;
+exports.randomLetters = exports.randomUppers = exports.randomLowers = exports.randomLetter = exports.randomUpper = exports.randomLower = exports.randomFloats = exports.randomIntegers = exports.randomFromArray = exports.randomFloat = exports.random = void 0;
 var assertion_lib_1 = require("@santi100/assertion-lib");
 /**
  * Returns a pseudo-random integer between min and max.
@@ -10,8 +19,8 @@ var assertion_lib_1 = require("@santi100/assertion-lib");
  */
 function random(max, min) {
     if (min === void 0) { min = 0; }
-    (0, assertion_lib_1.assertType)(max, 'number');
-    (0, assertion_lib_1.assertType)(min, 'number');
+    (0, assertion_lib_1.assertTypeOf)(max, 'number', 'max');
+    (0, assertion_lib_1.assertTypeOf)(min, 'number', 'min');
     (0, assertion_lib_1.assertInteger)(max, 'max');
     (0, assertion_lib_1.assertInteger)(min, 'min');
     var CONDITION = max > 0 ? max > min : max > -Infinity;
@@ -41,10 +50,6 @@ function randomFloat(max, min) {
     return Math.random() * (max - min + 1.0) + min;
 }
 exports.randomFloat = randomFloat;
-function __isArray(arr) {
-    var _a;
-    return ((_a = Array === null || Array === void 0 ? void 0 : Array.isArray) === null || _a === void 0 ? void 0 : _a.call(Array, arr)) || arr instanceof Array;
-}
 /**
  * Returns a/some random item(s) from `array`.
  * @param array The array from which you want to pick a random item.
@@ -52,19 +57,9 @@ function __isArray(arr) {
  */
 function randomFromArray(array, amount) {
     if (amount === void 0) { amount = 1; }
-    var isArray = __isArray(array);
-    var isNotEmpty = array.length !== 0;
     (0, assertion_lib_1.assertMin)(array.length, 'array.length', 0);
-    (0, assertion_lib_1.assert)(isArray, {
-        expected: true,
-        actual: isArray,
-        operator: '__isArray()'
-    });
-    (0, assertion_lib_1.assert)(isNotEmpty, {
-        expected: true,
-        actual: isNotEmpty,
-        operator: '==='
-    });
+    (0, assertion_lib_1.assertArray)(array, 'array');
+    (0, assertion_lib_1.assertMin)(array.length, 'array.length', 1);
     (0, assertion_lib_1.assertTypeOf)(amount, 'number', 'amount');
     (0, assertion_lib_1.assertMin)(amount, 'amount', 1);
     if (amount > 1) {
@@ -128,3 +123,54 @@ function randomFloats(amount, opts) {
     return internal;
 }
 exports.randomFloats = randomFloats;
+var lowers = 'abcdefghijklmnopqrstuvwxyz'.split('');
+var uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+var letters = __spreadArray(__spreadArray([], lowers, true), uppers, true);
+/**
+ * Returns a random lowercase letter.
+ * @returns A random lowercase letter.
+ */
+function randomLower() {
+    return randomFromArray(lowers);
+}
+exports.randomLower = randomLower;
+/**
+ * Returns a random uppercase letter.
+ * @returns A random uppercase letter.
+ */
+function randomUpper() {
+    return randomFromArray(uppers);
+}
+exports.randomUpper = randomUpper;
+/**
+ * Returns a random letter.
+ * @returns A random letter.
+ */
+function randomLetter() {
+    return randomFromArray(letters);
+}
+exports.randomLetter = randomLetter;
+/**
+ * Returns `amount` random lowercase letters.
+ * @returns An array of random lowercase letters.
+ */
+function randomLowers(amount) {
+    return randomFromArray(lowers, amount);
+}
+exports.randomLowers = randomLowers;
+/**
+ * Returns `amount` random uppercase letters.
+ * @returns An array of random uppercase letters.
+ */
+function randomUppers(amount) {
+    return randomFromArray(uppers, amount);
+}
+exports.randomUppers = randomUppers;
+/**
+ * Returns `amount` random letters.
+ * @returns An array of random letters.
+ */
+function randomLetters(amount) {
+    return randomFromArray(letters, amount);
+}
+exports.randomLetters = randomLetters;

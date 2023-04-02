@@ -5,21 +5,33 @@
 [![License](https://img.shields.io/github/license/santi100a/random-lib.svg)](https://github.com/santi100a/random-lib)
 [![Bundlephobia stats](https://img.shields.io/bundlephobia/min/@santi100/random-lib)](https://bundlephobia.com/package/@santi100/random-lib@latest)
 
-**WARNING: This library doesn't generate cryptographically safe random numbers, due to its reliability on `Math.random()`. This library is designed to be portable across the browser and Node.js, to the expense of security.**
+**WARNING: This library doesn't generate cryptographically safe random numbers, due to its reliance on `Math.random()`. This library is designed to be portable across the browser and Node.js, to the expense of security.**
 
 There's no warranty, and be aware there might be bugs in my code. Pull requests and issues are welcome!
 ## API
 
-### `random(max: number, min: number = 0)`
+- `random(max: number, min: number = 0)`
 Generate a random integer between `min` (0 by default) and `max`.
-### `randomFloat(max: number, min: number = 0)`
+- `randomFloat(max: number, min: number = 0)`
 Generate a random floating-point number between `min` (0 by default) and `max`.
-### `randomFromArray<T = unknown>(array: T[]): T;`
+- `randomFromArray<T = unknown>(array: T[]): T;`
 Returns a random item of `array`.
-### `function randomIntegers(amount?: number, opts?: RandomArraysOptions): number[];` 
+- `function randomIntegers(amount?: number, opts?: RandomArraysOptions): number[];` 
 Returns an array with `amount` random integers.
-### `function randomFloats(amount?: number, opts?: RandomArraysOptions): number[];`
+- `function randomFloats(amount?: number, opts?: RandomArraysOptions): number[];`
 Returns an array with `amount` random floating-point numbers.
+- `function randomLower(): string;`
+Returns a random lowercase letter.
+- `function randomUpper(): string;`
+Returns a random uppercase letter.
+- `function randomLetter(): string;`
+Returns a random letter.
+- `function randomLowers(): string;`
+Returns `amount` random lowercase letters.
+- `function randomUppers(): string;`
+Returns `amount` random uppercase letters.
+- `function randomLetters(): string;`
+Returns `amount` random letters.
 ## Usage
 ```typescript
 import { random } from '@santi100/random-lib'; // ESM

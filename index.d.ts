@@ -50,4 +50,6 @@ export declare function randomIntegers(amount?: number, opts?: RandomArraysOptio
  * @returns An array of random integers.
  */
 export declare function randomFloats(amount?: number, opts?: RandomArraysOptions): number[];
-export {};
+/**
+ * Returns a random lowercase letter.
+ * @returns A 

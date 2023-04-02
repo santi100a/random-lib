@@ -11,7 +11,7 @@ describe('randomFloats and randomIntegers test suites', () => {
             test('throws a TypeError if amount is negative', () => {
                 expect(() => {
                     randomIntegers(-1);
-                }).toThrow(TypeError);
+                }).toThrow(RangeError);
             });
 
             test('throws a TypeError if amount is not an integer', () => {
@@ -43,7 +43,7 @@ describe('randomFloats and randomIntegers test suites', () => {
             test('throws a TypeError if amount is negative', () => {
                 expect(() => {
                     randomFloats(-1);
-                }).toThrow(TypeError);
+                }).toThrow(RangeError);
             });
 
             test('throws a TypeError if amount is not an integer', () => {
