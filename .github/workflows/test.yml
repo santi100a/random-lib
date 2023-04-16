@@ -68,7 +68,7 @@ jobs:
         run: yarn build
       - name: Set authentication token
         run: |
-          npm set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTH_TOKEN }} 
+          npm set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTH_TOKEN }}
       - name: Publish to NPM
         run: yarn publish --access public
   publish-gpr:

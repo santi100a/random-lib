@@ -28,4 +28,13 @@ describe('randomFromArray', () => {
 			expect(randomFromArray([6, 7, 3], i).length).toBe(i);
 		}
 	});
+	// Tests that the function handles an empty input array.
+	it('test_empty_input', () => {
+		expect(() => randomFromArray([])).toThrow();
+	});
+
+	// Tests that the function throws an error if the input is not an array.
+	it('test_input_not_array', () => {
+		expect(() => randomFromArray('not an array')).toThrow();
+	});
 });

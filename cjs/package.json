@@ -1,5 +1,5 @@
 {
-  "type": "commonjs",
-  "main": "index.js",
-  "typings": "index.d.ts"
+	"type": "commonjs",
+	"main": "index.js",
+	"typings": "index.d.ts"
 }

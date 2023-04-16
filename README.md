@@ -1,4 +1,5 @@
 # Santi's Random Number Library
+
 [![Build Status](https://github.com/santi100a/random-lib/actions/workflows/test.yml/badge.svg)](https://github.com/santi100a/random-lib/actions)
 [![npm homepage](https://img.shields.io/npm/v/@santi100/random-lib)](https://npmjs.org/package/@santi100/random-lib)
 [![GitHub stars](https://img.shields.io/github/stars/santi100a/random-lib.svg)](https://github.com/santi100a/random-lib)
@@ -8,35 +9,108 @@
 **WARNING: This library doesn't generate cryptographically safe random numbers, due to its reliance on `Math.random()`. This library is designed to be portable across the browser and Node.js, to the expense of security.**
 
 There's no warranty, and be aware there might be bugs in my code. Pull requests and issues are welcome!
+
 ## API
 
-- `random(max: number, min: number = 0)`
-Generate a random integer between `min` (0 by default) and `max`.
-- `randomFloat(max: number, min: number = 0)`
-Generate a random floating-point number between `min` (0 by default) and `max`.
-- `randomFromArray<T = unknown>(array: T[]): T;`
-Returns a random item of `array`.
-- `function randomIntegers(amount?: number, opts?: RandomArraysOptions): number[];` 
-Returns an array with `amount` random integers.
-- `function randomFloats(amount?: number, opts?: RandomArraysOptions): number[];`
-Returns an array with `amount` random floating-point numbers.
-- `function randomLower(): string;`
-Returns a random lowercase letter.
-- `function randomUpper(): string;`
-Returns a random uppercase letter.
-- `function randomLetter(): string;`
-Returns a random letter.
-- `function randomLowers(): string;`
-Returns `amount` random lowercase letters.
-- `function randomUppers(): string;`
-Returns `amount` random uppercase letters.
-- `function randomLetters(): string;`
-Returns `amount` random letters.
-## Usage
-```typescript
-import { random, randomFromArray, randomIntegers, randomFloats } from '@santi100/random-lib'; // ESM
-const { random, randomFromArray, randomIntegers, randomFloats } = require('@santi100/random-lib'); // CJS
+- `function random(max: number, min: number = 0): number;`
+  Generate a random integer between `min` (0 by default) and `max`.
+  |Name  |   Type   |               Description               | Optional? |
+  |------|----------|-----------------------------------------|-----------|
+  |`max` | `number` | The maximum value.                      | No        |
+  |`min?`| `number` | The minimum value. Defaults to 0.       | Yes       |
+  
+  Returns a pseudo-random integer between `min` and `max`.
 
+- `function randomFloat(max: number, min: number = 0): number;`
+  Generate a random floating-point number between `min` (0 by default) and `max`.
+    Generate a random integer between `min` (0 by default) and `max`.
+  |Name  |   Type   |               Description               | Optional? | Default |
+  |------|----------|-----------------------------------------|-----------|---------|
+  |`max` | `number` | The maximum value.                      | No        |  *N/A*  |
+  |`min?`| `number` | The minimum value. Defaults to 0.       | Yes       |    0    |
+  
+  Returns a pseudo-random integer between `min` and `max`.
+
+- `function randomFromArray<T = unknown>(array: T[]): T;`
+  Returns a random item of `array`.
+  |  Name   |    Type      |               Description               | Optional? |  Default  |
+  |---------|--------------|-----------------------------------------|-----------|-----------|
+  | `array` | `number`     | The maximum value.                      | No        |  *N/A*    |
+  | `T`     | *type param* | The minimum value. Defaults to 0.       | Yes       | `unknown` |
+
+- `function randomIntegers(amount?: number, opts?: RandomArraysOptions): number[];`
+  Returns an array with `amount` random integers.
+  |     Name      |        Type           |               Description               | Optional?   |  Default  |
+  |---------------|-----------------------|-----------------------------------------|-------------|-----------|
+  | `amount`      | `number`              | The amount of random integers to fill the array with. |  Yes             |     4                 |
+  | `opts`        | `RandomArraysOptions` |The shape of the options passed to `randomIntegers` and `randomFloats`.             | Yes       |     `{}`                                                        |
+  | `opts.max?`   | `number`              | The maximum value.                      | Yes       |    300    |
+  | `opts.min?`   | `number`              | The minimum value.                      | Yes       |     0     |
+
+
+- `function randomFloats(amount?: number, opts?: RandomArraysOptions): number[];`
+  Returns an array with `amount` random floating-point numbers.
+  |     Name      |        Type           |               Description               | Optional?   |  Default  |
+  |---------------|-----------------------|-----------------------------------------|-------------|-----------|
+  | `amount`      | `number`              | The amount of random floating-point numbers to fill the array with.           |  Yes                  |    4                                                            |
+  | `opts`        | `RandomArraysOptions` |The shape of the options passed to `randomIntegers` and `randomFloats`.             | Yes       |     `{}`                                                        |
+  | `opts.max?`   | `number`              | The maximum value.                      | Yes       |    300    |
+  | `opts.min?`   | `number`              | The minimum value.                      | Yes       |     0     |
+- `function randomLower(): string;`
+  Returns a random lowercase letter.
+  
+- `function randomUpper(): string;`
+  Returns a random uppercase letter.
+
+- `function randomLetter(): string;`
+  Returns a random letter.
+
+- `function randomLowers(amount: number): string[];`
+  Returns `amount` random lowercase letters.
+  
+  |     Name      |        Type           |               Description               | Optional?   |  Default  |
+  |---------------|-----------------------|-----------------------------------------|-------------|-----------|
+  | `amount`      | `number`              | How many random lowercase letters to return. | No     |   *N/A*   |
+
+- `function randomUppers(amount: number): string[];`
+  Returns `amount` random uppercase letters.
+  |     Name      |        Type           |               Description               | Optional?   |  Default  |
+  |---------------|-----------------------|-----------------------------------------|-------------|-----------|
+  | `amount`      | `number`              | How many random uppercase letters to return. | No     |   *N/A*   |
+- `function randomLetters(amount: number): string[];`
+  Returns `amount` random letters.
+  |     Name      |        Type           |               Description               | Optional?   |  Default  |
+  |---------------|-----------------------|-----------------------------------------|-------------|-----------|
+  | `amount`      | `number`              | How many random letters to return.      |     No      |   *N/A*   |
+- `function randomDate(minDate: Date, maxDate: Date): Date;`
+  Generates a random date between `minDate` and `maxDate`.
+  |     Name      |        Type           |               Description               | Optional?   |  Default  |
+  |---------------|-----------------------|-----------------------------------------|-------------|-----------|
+  | `minDate`     | `Date`                | The minimum date to generate a random date from.      |     No      |   *N/A*   |
+  | `maxDate`     | `Date`                | The maximum date to generate a random date from.      |     No      |   *N/A*   |
+- `function randomDates(minDate: Date, maxDate: Date, amount: number): Date[];`
+  Generates `amount` random dates between `minDate` and `maxDate`.
+  |     Name      |        Type           |               Description               | Optional?   |  Default  |
+  |---------------|-----------------------|-----------------------------------------|-------------|-----------|
+  | `minDate`     | `Date`                | The minimum date to generate a random date from.      |     No      |   *N/A*   |
+  | `maxDate`     | `Date`                | The maximum date to generate a random date from.      |     No      |   *N/A*   |
+  | `amount`      | `number`              | The amount of dates to generate.        |     No      |   *N/A*   |
+
+## Usage
+
+```typescript
+import {
+	random,
+	randomFromArray,
+	randomIntegers,
+	randomFloats,
+} from '@santi100/random-lib'; // ESM
+const {
+	random,
+	randomFromArray,
+	randomIntegers,
+	randomFloats,
+} = require('@santi100/random-lib'); // CJS
 
 // Generate a random integer between 1 and 10
 const randomInt = random(10, 1);

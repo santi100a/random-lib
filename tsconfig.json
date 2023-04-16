@@ -1,13 +1,13 @@
 {
-    "include": ["src/*.ts"],
-    "exclude": [],
-    "compilerOptions": {
-        "declaration": true,
-        "target": "ES3",
-        "strict": true,
-        "module": "commonjs",
-        "outDir": "cjs/",
-        "noImplicitAny": true,
-        "lib": ["es2015"]
-    }
+	"include": ["src/*.ts"],
+	"exclude": [],
+	"compilerOptions": {
+		"declaration": true,
+		"target": "ES3",
+		"strict": true,
+		"module": "commonjs",
+		"outDir": "cjs/",
+		"noImplicitAny": true,
+		"lib": ["es2015"]
+	}
 }

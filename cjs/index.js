@@ -9,13 +9,13 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 exports.__esModule = true;
-exports.randomLetters = exports.randomUppers = exports.randomLowers = exports.randomLetter = exports.randomUpper = exports.randomLower = exports.randomFloats = exports.randomIntegers = exports.randomFromArray = exports.randomFloat = exports.random = void 0;
+exports.randomDates = exports.randomDate = exports.randomLetters = exports.randomUppers = exports.randomLowers = exports.randomLetter = exports.randomUpper = exports.randomLower = exports.LETTERS = exports.UPPERS = exports.LOWERS = exports.randomFloats = exports.randomIntegers = exports.DEFAULT_RANDOM_NUMBERS_MAX = exports.randomFromArray = exports.randomFloat = exports.random = void 0;
 var assertion_lib_1 = require("@santi100/assertion-lib");
 /**
  * Returns a pseudo-random integer between min and max.
- * @param {number} max The maximum value.
- * @param {number?} min The minimum value (0 by default).
- * @returns {number} A pseudo-random integer between min and max.
+ * @param max The maximum value.
+ * @param min The minimum value (0 by default).
+ * @returns A pseudo-random integer between min and max.
  */
 function random(max, min) {
     if (min === void 0) { min = 0; }
@@ -23,12 +23,12 @@ function random(max, min) {
     (0, assertion_lib_1.assertTypeOf)(min, 'number', 'min');
     (0, assertion_lib_1.assertInteger)(max, 'max');
     (0, assertion_lib_1.assertInteger)(min, 'min');
-    var CONDITION = max > 0 ? max > min : max > -Infinity;
-    (0, assertion_lib_1.assert)(CONDITION, {
-        expected: true,
-        actual: CONDITION,
-        operator: '==='
-    });
+    (0, assertion_lib_1.assertMax)(max, 'max', Infinity);
+    (0, assertion_lib_1.assertMin)(min, 'min', -Infinity);
+    if (max >= 0 && min >= 0)
+        (0, assertion_lib_1.assertMin)(max, 'max', min + 1);
+    else
+        (0, assertion_lib_1.assertMin)(-max, 'max', -min + 1);
     if (!min)
         return Math.floor(Math.random() * max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -52,16 +52,17 @@ function randomFloat(max, min) {
 exports.randomFloat = randomFloat;
 /**
  * Returns a/some random item(s) from `array`.
- * @param array The array from which you want to pick a random item.
+ * @param array The array from which you want to pick a/some random item(s).
+ * @param amount How many items do you want (default is 1).
  * @returns A random item from the given array.
  */
 function randomFromArray(array, amount) {
     if (amount === void 0) { amount = 1; }
-    (0, assertion_lib_1.assertMin)(array.length, 'array.length', 0);
     (0, assertion_lib_1.assertArray)(array, 'array');
     (0, assertion_lib_1.assertMin)(array.length, 'array.length', 1);
     (0, assertion_lib_1.assertTypeOf)(amount, 'number', 'amount');
     (0, assertion_lib_1.assertMin)(amount, 'amount', 1);
+    (0, assertion_lib_1.assertInteger)(amount, 'amount');
     if (amount > 1) {
         var items = [];
         for (var i = 0; i < amount; i++) {
@@ -72,7 +73,7 @@ function randomFromArray(array, amount) {
     return array[random(array.length)];
 }
 exports.randomFromArray = randomFromArray;
-var DEFAULT_MAX = 300;
+exports.DEFAULT_RANDOM_NUMBERS_MAX = 300;
 /**
  * Returns an array with `amount` random integers.
  *
@@ -84,7 +85,7 @@ function randomIntegers(amount, opts) {
     if (amount === void 0) { amount = 4; }
     if (opts === void 0) { opts = {}; }
     __checkRandomArraysErrors(amount, opts);
-    var _a = opts.max, max = _a === void 0 ? DEFAULT_MAX : _a, _b = opts.min, min = _b === void 0 ? 0 : _b;
+    var _a = opts.max, max = _a === void 0 ? exports.DEFAULT_RANDOM_NUMBERS_MAX : _a, _b = opts.min, min = _b === void 0 ? 0 : _b;
     var internal = [];
     for (var i = 0; i < amount; i++) {
         internal[internal.length] = random(max, min);
@@ -109,13 +110,13 @@ function __checkRandomArraysErrors(amount, opts) {
  *
  * @param amount The amount of random floating-point numbers to fill the array with. Defaults to 4.
  * @param opts See {@link RandomArraysOptions}.
- * @returns An array of random integers.
+ * @returns An array of random floating-point numbers.
  */
 function randomFloats(amount, opts) {
     if (amount === void 0) { amount = 4; }
     if (opts === void 0) { opts = {}; }
     __checkRandomArraysErrors(amount, opts);
-    var _a = opts.max, max = _a === void 0 ? DEFAULT_MAX : _a, _b = opts.min, min = _b === void 0 ? 0 : _b;
+    var _a = opts.max, max = _a === void 0 ? exports.DEFAULT_RANDOM_NUMBERS_MAX : _a, _b = opts.min, min = _b === void 0 ? 0 : _b;
     var internal = [];
     for (var i = 0; i < amount; i++) {
         internal[internal.length] = randomFloat(max, min);
@@ -123,15 +124,15 @@ function randomFloats(amount, opts) {
     return internal;
 }
 exports.randomFloats = randomFloats;
-var lowers = 'abcdefghijklmnopqrstuvwxyz'.split('');
-var uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-var letters = __spreadArray(__spreadArray([], lowers, true), uppers, true);
+exports.LOWERS = 'abcdefghijklmnopqrstuvwxyz'.split('');
+exports.UPPERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+exports.LETTERS = __spreadArray(__spreadArray([], exports.LOWERS, true), exports.UPPERS, true);
 /**
  * Returns a random lowercase letter.
  * @returns A random lowercase letter.
  */
 function randomLower() {
-    return randomFromArray(lowers);
+    return randomFromArray(exports.LOWERS);
 }
 exports.randomLower = randomLower;
 /**
@@ -139,7 +140,7 @@ exports.randomLower = randomLower;
  * @returns A random uppercase letter.
  */
 function randomUpper() {
-    return randomFromArray(uppers);
+    return randomFromArray(exports.UPPERS);
 }
 exports.randomUpper = randomUpper;
 /**
@@ -147,30 +148,76 @@ exports.randomUpper = randomUpper;
  * @returns A random letter.
  */
 function randomLetter() {
-    return randomFromArray(letters);
+    return randomFromArray(exports.LETTERS);
 }
 exports.randomLetter = randomLetter;
 /**
  * Returns `amount` random lowercase letters.
+ * @param amount How many random lowercase letters to return.
  * @returns An array of random lowercase letters.
  */
 function randomLowers(amount) {
-    return randomFromArray(lowers, amount);
+    if (amount === 0)
+        return [];
+    return randomFromArray(exports.LOWERS, amount);
 }
 exports.randomLowers = randomLowers;
 /**
  * Returns `amount` random uppercase letters.
+ * @param amount How many random uppercase letters to return.
  * @returns An array of random uppercase letters.
  */
 function randomUppers(amount) {
-    return randomFromArray(uppers, amount);
+    if (amount === 0)
+        return [];
+    return randomFromArray(exports.UPPERS, amount);
 }
 exports.randomUppers = randomUppers;
 /**
  * Returns `amount` random letters.
+ * @param amount How many random letters to return.
  * @returns An array of random letters.
  */
 function randomLetters(amount) {
-    return randomFromArray(letters, amount);
+    if (amount === 0)
+        return [];
+    return randomFromArray(exports.LETTERS, amount);
 }
 exports.randomLetters = randomLetters;
+/**
+ * Generates a random date between `minDate` and `maxDate`.
+ *
+ * @param minDate The minimum date to generate a random date from.
+ * @param maxDate The maximum date to generate a random date from.
+ * @returns A `Date` object representing a random date between `minDate` and `maxDate`.
+ */
+function randomDate(minDate, maxDate) {
+    (0, assertion_lib_1.assertInstanceOf)(minDate, Date);
+    (0, assertion_lib_1.assertInstanceOf)(maxDate, Date);
+    var randomTs = random(maxDate.getTime(), minDate.getTime());
+    return new Date(randomTs);
+}
+exports.randomDate = randomDate;
+/**
+ * Generates `amount` random dates between `minDate` and `maxDate`.
+ *
+ * @param minDate The minimum date to generate a random date from.
+ * @param maxDate The maximum date to generate a random date from.
+ * @param amount The amount of dates to generate.
+ * @returns An array of `Date` objects representing some random dates between `minDate` and `maxDate`.
+ */
+function randomDates(minDate, maxDate, amount) {
+    (0, assertion_lib_1.assertInstanceOf)(minDate, Date);
+    (0, assertion_lib_1.assertInstanceOf)(maxDate, Date);
+    var randomTs = randomIntegers(amount, {
+        max: maxDate.getTime(),
+        min: minDate.getTime()
+    });
+    var dates = [];
+    for (var _i = 0, randomTs_1 = randomTs; _i < randomTs_1.length; _i++) {
+        var ts = randomTs_1[_i];
+        dates.push(new Date(ts));
+    }
+    return dates;
+}
+exports.randomDates = randomDates;
