@@ -12,7 +12,7 @@
 - 👴 Compliant with ECMAScript 3
 - 📑 Split in different files (under `cjs/`) to import just what you need
 - 🎨 Includes a wide variety of randomizer functions
-- **🔓 Cryptogrphically UNSAFE (see below for details)**
+- **🔓 Cryptographically UNSAFE (see below for details)**
 
 **WARNING: This library doesn't generate cryptographically safe random numbers, due to its reliance on `Math.random()`. This library is designed to be portable across the browser and Node.js, to the expense of security.**
 
