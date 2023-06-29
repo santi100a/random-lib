@@ -6,6 +6,14 @@
 [![License](https://img.shields.io/github/license/santi100a/random-lib.svg)](https://github.com/santi100a/random-lib)
 [![Bundlephobia stats](https://img.shields.io/bundlephobia/min/@santi100/random-lib)](https://bundlephobia.com/package/@santi100/random-lib@latest)
 
+- 📘 Comes with built-in TypeScript definitions
+- 🌐 Includes a UMD build
+- 🚀 Lightweight and fast
+- 👴 Compliant with ECMAScript 3
+- 📑 Split in different files (under `cjs/`) to import just what you need
+- 🎨 Includes a wide variety of randomizer functions
+- **🔓 Cryptogrphically UNSAFE (see below for details)**
+
 **WARNING: This library doesn't generate cryptographically safe random numbers, due to its reliance on `Math.random()`. This library is designed to be portable across the browser and Node.js, to the expense of security.**
 
 There's no warranty, and be aware there might be bugs in my code. Pull requests and issues are welcome!
