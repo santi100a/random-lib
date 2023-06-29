@@ -1,2 +1,25 @@
 import cjsModule from './cjs/index.js';
-export const { __esModule, random, randomFloat, randomFromArray, DEFAULT_RANDOM_NUMBERS_MAX, randomIntegers, randomFloats, LOWERS, UPPERS, LETTERS, randomLower, randomUpper, randomLetter, randomLowers, randomUppers, randomLetters, randomDate, randomDates } = cjsModule;
+export const {
+	DEFAULT_RANDOM_NUMBERS_MAX,
+	WORDLIST,
+	LOWERS,
+	UPPERS,
+	LETTERS,
+	random,
+	randomDate,
+	randomDates,
+	randomFloat,
+	randomFloats,
+	randomFromArray,
+	randomIntegers,
+	randomLetter,
+	randomLetters,
+	randomLower,
+	randomLowers,
+	randomUpper,
+	randomUppers,
+	randomBoolean,
+	randomPhrase,
+	randomUUID,
+} = cjsModule;
+export default cjsModule['default'];

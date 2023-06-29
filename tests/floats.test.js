@@ -27,7 +27,7 @@ test('the output is a float', () => {
 	expect(typeof result).toBe('number');
 	expect(Number.isInteger(result)).toBeFalsy();
 });
-test('the output is within the range', ( ) => {
+test('the output is within the range', () => {
 	for (let i = 0; i < 300; i++) {
 		const result = randomFloat(10);
 		const result2 = randomFloat(10, Math.E);
@@ -37,4 +37,4 @@ test('the output is within the range', ( ) => {
 		expect(typeof result2).toBe('number');
 		expect(typeof result3).toBe('number');
 	}
-})
+});

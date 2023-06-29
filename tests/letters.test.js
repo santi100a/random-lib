@@ -164,9 +164,7 @@ describe('randomUppers_function', () => {
 
 	// Tests that the function throws an error when given a negative amount.
 	it('test_random_uppers_throws_error_when_given_negative_amount', () => {
-		expect(() => randomUppers(-1)).toThrowError(
-			RangeError
-		);
+		expect(() => randomUppers(-1)).toThrowError(RangeError);
 	});
 });
 describe('randomLetters_function', () => {
@@ -208,9 +206,7 @@ describe('randomLetters_function', () => {
 
 	// Tests that the function throws an error when given a negative amount.
 	it('test_throws_error_when_given_negative_amount', () => {
-		expect(() => randomLetters(-1)).toThrowError(
-			RangeError
-		);
+		expect(() => randomLetters(-1)).toThrowError(RangeError);
 	});
 
 	// Tests that the returned array contains only letters.

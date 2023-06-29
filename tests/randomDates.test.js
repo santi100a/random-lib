@@ -1,6 +1,6 @@
 describe('randomDate and randomDates test suite', () => {
-    const { randomDates, randomDate } = require('..');
-    
+	const { randomDates, randomDate } = require('..');
+
 	describe('randomDates_function', () => {
 		// Tests that the function generates the correct amount of random dates.
 		it('test_random_dates_generates_correct_amount_of_dates', () => {

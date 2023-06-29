@@ -66,6 +66,8 @@ jobs:
         run: yarn
       - name: Build code
         run: yarn build
+      - name: Build UMD Version
+        run: yarn build:umd
       - name: Set authentication token
         run: |
           npm set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTH_TOKEN }}
@@ -88,6 +90,8 @@ jobs:
         run: yarn
       - name: Build code
         run: yarn build
+      - name: Build UMD Version
+        run: yarn build:umd
       - name: Set authentication token
         run: |
           npm set //npm.pkg.github.com/:_authToken ${{ secrets.GPR_AUTH_TOKEN }}

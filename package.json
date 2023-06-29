@@ -1,19 +1,22 @@
 {
 	"name": "@santi100/random-lib",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"main": "./cjs/index.js",
 	"module": "./index.mjs",
 	"license": "MIT",
 	"readme": "README.md",
-	"dependencies": {
-		"@santi100/assertion-lib": "^1.0.8"
-	},
+	"umd:main": "umd/index.js",
+	"description": "Santi's Random Library: Randomize pretty much everything!",
+	"files": ["umd/**/*.js"],
+
 	"keywords": [
 		"random",
 		"lightweight",
 		"es3"
 	],
-	"description": "Santi's Random Library: Randomize pretty much everything!",
+	"dependencies": {
+		"@santi100/assertion-lib": "^1.0.8"
+	},
 	"devDependencies": {
 		"@types/jest": "^29.5.0",
 		"@typescript-eslint/eslint-plugin": "^5.58.0",
@@ -24,18 +27,19 @@
 		"prettier": "^2.8.7",
 		"typescript": "^4.9.5"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/santi100a/random-lib"
+	},
 	"scripts": {
 		"test": "jest --verbose",
 		"build": "tsc",
+		"build:umd": "tsc --module umd --outDir umd --moduleResolution node --declaration false",
 		"dev": "tsc -w",
 		"lint": "eslint src/*.ts",
 		"prettify": "prettier --write .",
 		"esm-wrapper": "node scripts/esm-wrapper.js",
 		"fix-lint": "eslint src/*.ts --fix",
 		"test:watch": "jest --verbose --watchAll"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/santi100a/random-lib"
 	}
 }
