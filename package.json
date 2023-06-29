@@ -7,10 +7,6 @@
   "license": "MIT",
   "readme": "README.md",
   "description": "Santi's Random Library: Randomize pretty much everything!",
-  "files": [
-    "umd/**/*.js",
-    "cjs/**/*.*"
-  ],
   "keywords": [
     "random",
     "lightweight",
