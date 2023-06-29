@@ -16,8 +16,6 @@
 
 **WARNING: This library doesn't generate cryptographically safe random numbers, due to its reliance on `Math.random()`. This library is designed to be portable across the browser and Node.js, to the expense of security.**
 
-There's no warranty, and be aware there might be bugs in my code. Pull requests and issues are welcome!
-
 ## API
 
 - `function random(max: number, min: number = 0): number;`
