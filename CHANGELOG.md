@@ -24,3 +24,8 @@
 - Split the library into different files (under `cjs/`) to allow partial loading of required features.
 - Added new randomizers: `randomBoolean`, `randomHexColor`, `randomPhrase` and `randomUUID`.
 - Added a UMD build.
+
+## Version 1.1.6
+
+- Fixed a major bug introduced on the previous version.
+

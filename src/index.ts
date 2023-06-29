@@ -16,4 +16,5 @@ export * from './random-boolean';
 export * from './random-phrase';
 export * from './random-uuid';
 export * from './random-hex-color';
+
 export { random as default } from './random';
