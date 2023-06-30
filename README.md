@@ -35,7 +35,7 @@
   |`max` | `number` | The maximum value. | No | _N/A_ |
   |`min?`| `number` | The minimum value. Defaults to 0. | Yes | 0 |
 
-  Returns a pseudo-random integer between `min` and `max`.
+  Returns a pseudo-random floating-point number between min and max.
 
 - `function randomFromArray<T = unknown>(array: T[]): T;`
   Returns a random item of `array`.
@@ -114,9 +114,9 @@
 
   Generates a random hex colorcode.
 
-  | Name | Type | Description | Optional? | Default |
-  |------|------|-------------|-----------|---------|
-  |`shorthand` | `boolean` | Whether or not use a 3-character code instead of a 6-character one. | No | _N/A_ |
+  | Name        | Type      | Description                                                         | Optional? | Default |
+  | ----------- | --------- | ------------------------------------------------------------------- | --------- | ------- |
+  | `shorthand` | `boolean` | Whether or not use a 3-character code instead of a 6-character one. | No        | _N/A_   |
 
 - `function randomPhrase(): string;` **NEW! (since 1.1.5)**
   Generate a random 6-word phrase.
@@ -124,14 +124,14 @@
   **Keep in mind these phrases have NO GRAMATICAL sense and are generated from a list of random words.**
 
 - `function randomPhrase(wordCount: number): string;` **NEW! (since 1.1.5)**
-  
+
   Generate a random phrase with `wordCount` words.
 
   **Keep in mind these phrases have NO GRAMATICAL sense and are generated from a list of random words.**
 
-  | Name | Type | Description | Optional? | Default |
-  |------|------|-------------|-----------|---------|
-  |`wordCount` | `number` | The amount of words to use in the phrase. | No | _N/A_ |
+  | Name        | Type     | Description                               | Optional? | Default |
+  | ----------- | -------- | ----------------------------------------- | --------- | ------- |
+  | `wordCount` | `number` | The amount of words to use in the phrase. | No        | _N/A_   |
 
 - `function randomUUID(): string;` **NEW! (since 1.1.5)**
 
