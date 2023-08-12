@@ -1,7 +1,7 @@
 "use strict";
-exports.__esModule = true;
-exports.randomFloat = void 0;
-var assertion_lib_1 = require("@santi100/assertion-lib");
+var _a;
+var assertTypeOf = require("@santi100/assertion-lib/cjs/type-of");
+var assertMax = require("@santi100/assertion-lib/cjs/max");
 /**
  * Returns a pseudo-random floating-point number between min and max.
  * @param max The maximum value.
@@ -10,11 +10,13 @@ var assertion_lib_1 = require("@santi100/assertion-lib");
  */
 function randomFloat(max, min) {
     if (min === void 0) { min = 0.0; }
-    (0, assertion_lib_1.assertTypeOf)(max, 'number', 'max');
-    (0, assertion_lib_1.assertTypeOf)(min, 'number', 'min');
-    (0, assertion_lib_1.assertMax)(min, 'min', max - 1);
+    assertTypeOf(max, 'number', 'max');
+    assertTypeOf(min, 'number', 'min');
+    assertMax(min, 'min', max - 1);
     if (!min)
         return Math.random() * max;
     return Math.random() * (max - min + 1.0) + min;
 }
-exports.randomFloat = randomFloat;
+randomFloat.randomFloat = randomFloat;
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomFloat, 'randomFloat', { enumerable: false });
+module.exports = randomFloat;

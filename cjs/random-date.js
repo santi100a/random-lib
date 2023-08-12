@@ -1,8 +1,7 @@
 "use strict";
-exports.__esModule = true;
-exports.randomDate = void 0;
-var assertion_lib_1 = require("@santi100/assertion-lib");
-var random_1 = require("./random");
+var _a;
+var assertInstanceOf = require("@santi100/assertion-lib/cjs/instance-of");
+var random = require("./random");
 /**
  * Generates a random date between `minDate` and `maxDate`.
  *
@@ -11,9 +10,11 @@ var random_1 = require("./random");
  * @returns A `Date` object representing a random date between `minDate` and `maxDate`.
  */
 function randomDate(minDate, maxDate) {
-    (0, assertion_lib_1.assertInstanceOf)(minDate, Date);
-    (0, assertion_lib_1.assertInstanceOf)(maxDate, Date);
-    var randomTs = (0, random_1.random)(maxDate.getTime(), minDate.getTime());
+    assertInstanceOf(minDate, Date);
+    assertInstanceOf(maxDate, Date);
+    var randomTs = random(maxDate.getTime(), minDate.getTime());
     return new Date(randomTs);
 }
-exports.randomDate = randomDate;
+randomDate.randomDate = randomDate;
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomDate, 'randomDate', { enumerable: false });
+module.exports = randomDate;

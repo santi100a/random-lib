@@ -1,4 +1,8 @@
 /**
  * Generates a pseudo-random UUID v4.
  */
-export declare function randomUUID(): string;
+declare function randomUUID(): string;
+declare namespace randomUUID {
+    var randomUUID: typeof import("./random-uuid");
+}
+export = randomUUID;

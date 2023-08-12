@@ -6,7 +6,11 @@ import { randomFromArray } from './random-from-array';
  * @param amount How many random uppercase letters to return.
  * @returns An array of random uppercase letters.
  */
-export function randomUppers(amount: number) {
+function randomUppers(amount: number) {
 	if (amount === 0) return [];
 	return randomFromArray(UPPERS, amount);
 }
+
+randomUppers.randomUppers = randomUppers;
+Object?.defineProperty?.(randomUppers, 'randomUppers', { enumerable: false });
+export = randomUppers;

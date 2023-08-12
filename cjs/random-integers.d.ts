@@ -6,4 +6,8 @@ import { RandomArraysOptions } from './core';
  * @param opts See {@link RandomArraysOptions}.
  * @returns An array of random integers.
  */
-export declare function randomIntegers(amount?: number, opts?: RandomArraysOptions): number[];
+declare function randomIntegers(amount?: number, opts?: RandomArraysOptions): number[];
+declare namespace randomIntegers {
+    var randomIntegers: typeof import("./random-integers");
+}
+export = randomIntegers;

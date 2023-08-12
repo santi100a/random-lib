@@ -1,5 +1,5 @@
-import { assertInstanceOf } from '@santi100/assertion-lib';
-import { randomIntegers } from './random-integers';
+import assertInstanceOf = require('@santi100/assertion-lib/cjs/instance-of');
+import randomIntegers = require('./random-integers');
 
 /**
  * Generates `amount` random dates between `minDate` and `maxDate`.
@@ -9,7 +9,7 @@ import { randomIntegers } from './random-integers';
  * @param amount The amount of dates to generate.
  * @returns An array of `Date` objects representing some random dates between `minDate` and `maxDate`.
  */
-export function randomDates(
+function randomDates(
 	minDate: Date,
 	maxDate: Date,
 	amount: number
@@ -27,3 +27,7 @@ export function randomDates(
 	}
 	return dates;
 }
+
+randomDates.randomDate = randomDates;
+Object?.defineProperty?.(randomDates, 'randomDates', { enumerable: false });
+export = randomDates;

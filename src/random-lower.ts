@@ -1,10 +1,13 @@
 import { LOWERS } from './core';
-import { randomFromArray } from './random-from-array';
+import randomFromArray = require('./random-from-array');
 
 /**
  * Returns a random lowercase letter.
  * @returns A random lowercase letter.
  */
-export function randomLower() {
+function randomLower() {
 	return randomFromArray(LOWERS);
 }
+randomLower.randomLower = randomLower;
+Object?.defineProperty?.(randomLower, 'randomLower', { enumerable: false });
+export = randomLower;

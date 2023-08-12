@@ -1,6 +1,5 @@
 "use strict";
-exports.__esModule = true;
-exports.randomBoolean = void 0;
+var _a;
 var random_from_array_1 = require("./random-from-array");
 /**
  * Generates a random boolean value.
@@ -16,4 +15,6 @@ function randomBoolean() {
     ];
     return (0, random_from_array_1.randomFromArray)(array);
 }
-exports.randomBoolean = randomBoolean;
+randomBoolean.randomBoolean = randomBoolean;
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomBoolean, 'randomBoolean', { enumerable: false });
+module.exports = randomBoolean;

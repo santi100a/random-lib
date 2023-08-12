@@ -1,13 +1,6 @@
 "use strict";
-exports.__esModule = true;
-exports.random = void 0;
+var _a;
 var assertion_lib_1 = require("@santi100/assertion-lib");
-/**
- * Returns a pseudo-random integer between min and max.
- * @param max The maximum value.
- * @param min The minimum value (0 by default).
- * @returns A pseudo-random integer between min and max.
- */
 function random(max, min) {
     if (min === void 0) { min = 0; }
     (0, assertion_lib_1.assertTypeOf)(max, 'number', 'max');
@@ -24,4 +17,6 @@ function random(max, min) {
         return Math.floor(Math.random() * max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-exports.random = random;
+random.random = random; // for backward compatibility and destructuring support
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, random, 'random', { enumerable: false });
+module.exports = random;

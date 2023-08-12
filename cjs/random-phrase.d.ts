@@ -3,7 +3,7 @@
  *
  * **Keep in mind these phrases have NO GRAMATICAL sense and are generated from a list of random words.**
  */
-export declare function randomPhrase(): string;
+declare function randomPhrase(): string;
 /**
  * Generate a random phrase with `wordCount` words.
  *
@@ -11,4 +11,8 @@ export declare function randomPhrase(): string;
  *
  * @param wordCount The amount of words to use in the phrase.
  */
-export declare function randomPhrase(wordCount: number): string;
+declare function randomPhrase(wordCount: number): string;
+declare namespace randomPhrase {
+    var randomPhrase: typeof import("./random-phrase");
+}
+export = randomPhrase;

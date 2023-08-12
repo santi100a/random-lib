@@ -1,17 +1,15 @@
-import {
-	assertArray,
-	assertMin,
-	assertTypeOf,
-	assertInteger,
-} from '@santi100/assertion-lib';
 import { AtLeastOneElement } from './core';
-import { random } from './random';
+import random = require('./random');
+import assertArray = require('@santi100/assertion-lib/cjs/array');
+import assertTypeOf = require('@santi100/assertion-lib/cjs/type-of');
+import assertInteger = require('@santi100/assertion-lib/cjs/integer');
+import assertMin = require('@santi100/assertion-lib/cjs/min');
 /**
  * Returns a random item from `array`.
  * @param array The array from which you want to pick a random item.
  * @returns A random item from the given array.
  */
-export function randomFromArray<T = unknown>(array: AtLeastOneElement<T>): T;
+function randomFromArray<T = unknown>(array: AtLeastOneElement<T>): T;
 /**
  *
  * Returns `amount` random items from `array`.
@@ -20,7 +18,7 @@ export function randomFromArray<T = unknown>(array: AtLeastOneElement<T>): T;
  * @returns An array of random items from the given array.
  * @since 1.1.2
  */
-export function randomFromArray<T = unknown>(
+function randomFromArray<T = unknown>(
 	array: AtLeastOneElement<T>,
 	amount: number
 ): T[];
@@ -30,7 +28,7 @@ export function randomFromArray<T = unknown>(
  * @param amount How many items do you want (default is 1).
  * @returns A random item from the given array.
  */
-export function randomFromArray<T = unknown>(
+function randomFromArray<T = unknown>(
 	array: AtLeastOneElement<T>,
 	amount = 1
 ): T | T[] {
@@ -48,3 +46,6 @@ export function randomFromArray<T = unknown>(
 	}
 	return array[random(array.length)];
 }
+randomFromArray.randomFromArray = randomFromArray;
+Object?.defineProperty?.(randomFromArray, 'randomFromArray', { enumerable: false });
+export = randomFromArray;

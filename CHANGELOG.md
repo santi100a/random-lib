@@ -29,3 +29,6 @@
 
 - Fixed a major bug introduced on the previous version.
 
+## Version 1.1.7
+
+- Added `randomPhone`.

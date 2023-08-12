@@ -4,13 +4,13 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "@santi100/assertion-lib", "./random-integers"], factory);
+        define(["require", "exports", "@santi100/assertion-lib/cjs/instance-of", "./random-integers"], factory);
     }
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
     exports.randomDates = void 0;
-    var assertion_lib_1 = require("@santi100/assertion-lib");
+    var instance_of_1 = require("@santi100/assertion-lib/cjs/instance-of");
     var random_integers_1 = require("./random-integers");
     /**
      * Generates `amount` random dates between `minDate` and `maxDate`.
@@ -21,8 +21,8 @@
      * @returns An array of `Date` objects representing some random dates between `minDate` and `maxDate`.
      */
     function randomDates(minDate, maxDate, amount) {
-        (0, assertion_lib_1.assertInstanceOf)(minDate, Date);
-        (0, assertion_lib_1.assertInstanceOf)(maxDate, Date);
+        (0, instance_of_1.assertInstanceOf)(minDate, Date);
+        (0, instance_of_1.assertInstanceOf)(maxDate, Date);
         var randomTs = (0, random_integers_1.randomIntegers)(amount, {
             max: maxDate.getTime(),
             min: minDate.getTime()

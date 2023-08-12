@@ -1,6 +1,5 @@
 "use strict";
-exports.__esModule = true;
-exports.randomUppers = void 0;
+var _a;
 var core_1 = require("./core");
 var random_from_array_1 = require("./random-from-array");
 /**
@@ -13,4 +12,6 @@ function randomUppers(amount) {
         return [];
     return (0, random_from_array_1.randomFromArray)(core_1.UPPERS, amount);
 }
-exports.randomUppers = randomUppers;
+randomUppers.randomUppers = randomUppers;
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomUppers, 'randomUppers', { enumerable: false });
+module.exports = randomUppers;

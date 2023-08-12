@@ -80,8 +80,8 @@ export const WORDLIST = [
  * @since 1.1.1
  */
 export interface RandomArraysOptions {
-	max?: number;
-	min?: number;
+	readonly max?: number;
+	readonly min?: number;
 }
 /**
  * An array containing all 26 English lowercase letters.

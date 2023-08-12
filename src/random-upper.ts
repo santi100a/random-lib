@@ -5,6 +5,9 @@ import { randomFromArray } from './random-from-array';
  * Returns a random uppercase letter.
  * @returns A random uppercase letter.
  */
-export function randomUpper() {
+function randomUpper() {
 	return randomFromArray(UPPERS);
 }
+randomUpper.randomUpper = randomUpper;
+Object?.defineProperty?.(randomUpper, 'randomUpper', { enumerable: false });
+export = randomUpper;

@@ -1,6 +1,5 @@
 "use strict";
-exports.__esModule = true;
-exports.randomUUID = void 0;
+var _a;
 var random_1 = require("./random");
 function __map(array, cb) {
     var m = [];
@@ -29,7 +28,7 @@ function randomUUID() {
                 sectionString += validChars.charAt(randomIndex);
             }
             else {
-                var randomIndex = Math.floor(Math.random() * characters.length);
+                var randomIndex = (0, random_1.random)(characters.length);
                 sectionString += characters.charAt(randomIndex);
             }
         }
@@ -37,4 +36,6 @@ function randomUUID() {
     });
     return uuidSections.join('-');
 }
-exports.randomUUID = randomUUID;
+randomUUID.randomUUID = randomUUID;
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomUUID, 'randomUUID', { enumerable: false });
+module.exports = randomUUID;

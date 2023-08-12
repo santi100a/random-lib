@@ -3,4 +3,8 @@
  * @param amount How many random lowercase letters to return.
  * @returns An array of random lowercase letters.
  */
-export declare function randomLowers(amount: number): string[];
+declare function randomLowers(amount: number): string[];
+declare namespace randomLowers {
+    var randomLowers: typeof import("./random-lowers");
+}
+export = randomLowers;

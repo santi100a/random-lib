@@ -12,9 +12,6 @@
 - 👴 Compliant with ECMAScript 3
 - 📑 Split in different files (under `cjs/`) to import just what you need
 - 🎨 Includes a wide variety of randomizer functions
-- **🔓 Cryptographically UNSAFE (see below for details)**
-
-**WARNING: This library doesn't generate cryptographically safe random numbers, due to its reliance on `Math.random()`. This library is designed to be portable across the browser and Node.js, to the expense of security.**
 
 ## API
 
@@ -137,21 +134,67 @@
 
   Generates a pseudo-random UUID v4.
 
+- `function randomPhone(countryCode: number): string;` **NEW! (since 1.1.7)**
+
+  Generates a 10-digit random phone number of the form `+xx xxx xxxxxxx`, where `x` is a digit.
+
+  | Name          | Type     | Description                                                                             | Optional? |
+  | ------------- | -------- | --------------------------------------------------------------------------------------- | --------- |
+  | `countryCode` | `number` | The code of the country to which the number would belong to. Must be between 1 and 999. | No        |
+
+- `function randomPhone(countryCode: number, digitCount: number): string;` **NEW! (since 1.1.7)**
+
+  Generates a random phone number of the form `+xx xxx x...`, where `x` is a digit.
+
+  | Name          | Type     | Description                                                                                                                                     | Optional? |
+  | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+  | `countryCode` | `number` | The code of the country to which the number would belong to. Must be between 1 and 999.                                                         | No        |
+  | `digitCount`  | `number` | The amount of digits the phone number must have beside the country code. If bigger than 10, the extra digits will be added to the `x...` block. | No        |
+
 ## Usage
 
 ```typescript
+// Import the most basic function...
+const { 'default': random } = require('@santi100/random-lib'); // CJS
+import random from '@santi100/random-lib'; // ESM/TypeScript
+
+// Or import only the functions you need from the files you need...
+
+// CJS
+const random = require('@santi100/random-lib/cjs/random'); 
+const randomFromArray = require('@santi100/random-lib/cjs/random-from-array'); 
+const randomIntegers = require('@santi100/random-lib/cjs/random-integers'); 
+const randomFloats = require('@santi100/random-lib/cjs/random-floats'); 
+
+// TypeScript
+import random = require('@santi100/random-lib/cjs/random'); 
+import randomFromArray = require('@santi100/random-lib/cjs/random-from-array'); 
+import randomIntegers = require('@santi100/random-lib/cjs/random-integers'); 
+import randomFloats = require('@santi100/random-lib/cjs/random-floats'); 
+
+// ESM
+import random from '@santi100/random-lib/cjs/random'; 
+import randomFromArray from '@santi100/random-lib/cjs/random-from-array'; 
+import randomIntegers from '@santi100/random-lib/cjs/random-integers'; 
+import randomFloats from '@santi100/random-lib/cjs/random-floats'; 
+
+// Or import only the functions you need...
 import {
- random,
- randomFromArray,
- randomIntegers,
- randomFloats,
-} from '@santi100/random-lib'; // ESM
+	random,
+	randomFromArray,
+	randomIntegers,
+	randomFloats,
+} from '@santi100/random-lib'; // ESM/TypeScript
 const {
- random,
- randomFromArray,
- randomIntegers,
- randomFloats,
+	random,
+	randomFromArray,
+	randomIntegers,
+	randomFloats,
 } = require('@santi100/random-lib'); // CJS
+
+// Or import everything
+import * as randomLib from '@santi100/random-lib'; // ESM/TypeScript
+const randomLib = require('@ssanti100/random-lib'); // CJS
 
 // Generate a random integer between 1 and 10
 const randomInt = random(10, 1);
@@ -187,3 +230,9 @@ console.log(myRandomUppercaseLetters); // outputs an array of 10 random uppercas
 const myRandomLetters = randomLetters(3);
 console.log(myRandomLetters); // outputs an array of 3 random letters (either lowercase or uppercase, e.g. ['e', 'W', 'T'])
 ```
+
+---
+
+<sub>
+This library doesn't generate cryptographically safe random numbers, due to its reliance on `Math.random()`. This library is designed to be portable across the browser and Node.js, to the expense of security.
+</sub>

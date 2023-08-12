@@ -1,10 +1,14 @@
 import { LETTERS } from './core';
-import { randomFromArray } from './random-from-array';
+import randomFromArray = require('./random-from-array');
 
 /**
  * Returns a random letter.
  * @returns A random letter.
  */
-export function randomLetter() {
+function randomLetter() {
 	return randomFromArray(LETTERS);
 }
+
+randomLetter.randomLetter = randomLetter;
+Object?.defineProperty?.(randomLetter, 'randomLetter', { enumerable: false });
+export = randomLetter;

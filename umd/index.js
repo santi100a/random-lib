@@ -18,12 +18,15 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./core", "./random", "./random-date", "./random-dates", "./random-float", "./random-floats", "./random-from-array", "./random-integers", "./random-letter", "./random-letters", "./random-lower", "./random-lowers", "./random-upper", "./random-uppers", "./random-boolean", "./random-phrase", "./random-uuid", "./random-hex-color", "./random"], factory);
+        define(["require", "exports", "./random-phone", "./random", "./core", "./random", "./random-date", "./random-dates", "./random-float", "./random-floats", "./random-from-array", "./random-integers", "./random-letter", "./random-letters", "./random-lower", "./random-lowers", "./random-upper", "./random-uppers", "./random-boolean", "./random-phrase", "./random-uuid", "./random-hex-color"], factory);
     }
 })(function (require, exports) {
     "use strict";
     exports.__esModule = true;
-    exports["default"] = void 0;
+    exports.randomPhone = void 0;
+    var randomPhone = require("./random-phone");
+    exports.randomPhone = randomPhone;
+    var random_1 = require("./random");
     __exportStar(require("./core"), exports);
     __exportStar(require("./random"), exports);
     __exportStar(require("./random-date"), exports);
@@ -42,6 +45,5 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     __exportStar(require("./random-phrase"), exports);
     __exportStar(require("./random-uuid"), exports);
     __exportStar(require("./random-hex-color"), exports);
-    var random_1 = require("./random");
-    __createBinding(exports, random_1, "random", "default");
+    exports["default"] = random_1.random;
 });

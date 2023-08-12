@@ -6,12 +6,19 @@ import {
 } from '@santi100/assertion-lib';
 
 /**
- * Returns a pseudo-random integer between min and max.
+ * Returns a pseudo-random integer up to `max` (exclusive).
  * @param max The maximum value.
- * @param min The minimum value (0 by default).
- * @returns A pseudo-random integer between min and max.
  */
-export function random(max: number, min = 0): number {
+function random(max: number): number;
+/**
+ * Returns a pseudo-random integer in the range [`min`, `max`).
+ * @param max The maximum value.
+ * @param min The minimum value.
+ */
+function random(max: number, min: number): number;
+
+
+function random(max: number, min = 0): number {
 	assertTypeOf(max, 'number', 'max');
 	assertTypeOf(min, 'number', 'min');
 	assertInteger(max, 'max');
@@ -23,3 +30,8 @@ export function random(max: number, min = 0): number {
 	if (!min) return Math.floor(Math.random() * max);
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+random.random = random; // for backward compatibility and destructuring support
+Object?.defineProperty?.(random, 'random', { enumerable: false });
+
+export = random;

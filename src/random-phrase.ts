@@ -1,4 +1,4 @@
-import { assertTypeOf } from '@santi100/assertion-lib';
+import { assertTypeOf } from '@santi100/assertion-lib/cjs/type-of';
 import { AtLeastOneElement, WORDLIST } from './core';
 import { randomFromArray } from './random-from-array';
 
@@ -7,7 +7,7 @@ import { randomFromArray } from './random-from-array';
  *
  * **Keep in mind these phrases have NO GRAMATICAL sense and are generated from a list of random words.**
  */
-export function randomPhrase(): string;
+function randomPhrase(): string;
 /**
  * Generate a random phrase with `wordCount` words.
  *
@@ -15,8 +15,8 @@ export function randomPhrase(): string;
  *
  * @param wordCount The amount of words to use in the phrase.
  */
-export function randomPhrase(wordCount: number): string;
-export function randomPhrase(wordCount = 6) {
+function randomPhrase(wordCount: number): string;
+function randomPhrase(wordCount = 6) {
 	assertTypeOf(wordCount, 'number', 'wordCount');
 	const words = randomFromArray(
 		WORDLIST as AtLeastOneElement<string>,
@@ -24,3 +24,7 @@ export function randomPhrase(wordCount = 6) {
 	);
 	return words.join(' ');
 }
+
+randomPhrase.randomPhrase = randomPhrase;
+Object?.defineProperty?.(randomPhrase, 'randomPhrase', { enumerable: false });
+export = randomPhrase;

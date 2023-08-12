@@ -2,4 +2,8 @@
  * Returns a random letter.
  * @returns A random letter.
  */
-export declare function randomLetter(): string;
+declare function randomLetter(): string;
+declare namespace randomLetter {
+    var randomLetter: typeof import("./random-letter");
+}
+export = randomLetter;

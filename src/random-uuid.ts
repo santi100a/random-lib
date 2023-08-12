@@ -10,7 +10,7 @@ function __map<T = unknown>(array: T[], cb: (i: T, idx: number) => unknown) {
 /**
  * Generates a pseudo-random UUID v4.
  */
-export function randomUUID() {
+function randomUUID() {
 	const characters = 'abcdef0123456789';
 	const sections = [8, 4, 4, 4, 12];
 
@@ -26,7 +26,7 @@ export function randomUUID() {
 				const validChars = '89ab';
 				sectionString += validChars.charAt(randomIndex);
 			} else {
-				const randomIndex = Math.floor(Math.random() * characters.length);
+				const randomIndex = random(characters.length);
 				sectionString += characters.charAt(randomIndex);
 			}
 		}
@@ -35,3 +35,6 @@ export function randomUUID() {
 
 	return uuidSections.join('-');
 }
+randomUUID.randomUUID = randomUUID;
+Object?.defineProperty?.(randomUUID, 'randomUUID', { enumerable: false });
+export = randomUUID;

@@ -19,7 +19,7 @@
         return m;
     }
     /**
-     * Generate a pseudo-random UUID v4.
+     * Generates a pseudo-random UUID v4.
      */
     function randomUUID() {
         var characters = 'abcdef0123456789';

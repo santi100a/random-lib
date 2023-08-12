@@ -4,7 +4,7 @@ import { AtLeastOneElement } from './core';
  * @param array The array from which you want to pick a random item.
  * @returns A random item from the given array.
  */
-export declare function randomFromArray<T = unknown>(array: AtLeastOneElement<T>): T;
+declare function randomFromArray<T = unknown>(array: AtLeastOneElement<T>): T;
 /**
  *
  * Returns `amount` random items from `array`.
@@ -13,4 +13,8 @@ export declare function randomFromArray<T = unknown>(array: AtLeastOneElement<T>
  * @returns An array of random items from the given array.
  * @since 1.1.2
  */
-export declare function randomFromArray<T = unknown>(array: AtLeastOneElement<T>, amount: number): T[];
+declare function randomFromArray<T = unknown>(array: AtLeastOneElement<T>, amount: number): T[];
+declare namespace randomFromArray {
+    var randomFromArray: typeof import("./random-from-array");
+}
+export = randomFromArray;

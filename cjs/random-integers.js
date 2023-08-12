@@ -1,21 +1,10 @@
 "use strict";
-exports.__esModule = true;
-exports.randomIntegers = void 0;
-var assertion_lib_1 = require("@santi100/assertion-lib");
+var _a;
 var core_1 = require("./core");
-var random_1 = require("./random");
-function __isNullOrUndefined(a) {
-    return a === null || a === undefined;
-}
-function __checkRandomArraysErrors(amount, opts) {
-    (0, assertion_lib_1.assertTypeOf)(amount, 'number', 'amount');
-    if (!__isNullOrUndefined(opts.max))
-        (0, assertion_lib_1.assertTypeOf)(opts.max, 'number', 'opts.max');
-    if (!__isNullOrUndefined(opts.min))
-        (0, assertion_lib_1.assertTypeOf)(opts.min, 'number', 'opts.min');
-    (0, assertion_lib_1.assertMin)(amount, 'amount', 0);
-    (0, assertion_lib_1.assertInteger)(amount, 'amount');
-}
+var random = require("./random");
+var assertTypeOf = require("@santi100/assertion-lib/cjs/type-of");
+var assertMin = require("@santi100/assertion-lib/cjs/min");
+var assertInteger = require("@santi100/assertion-lib/cjs/integer");
 /**
  * Returns an array with `amount` random integers.
  *
@@ -25,13 +14,20 @@ function __checkRandomArraysErrors(amount, opts) {
  */
 function randomIntegers(amount, opts) {
     if (amount === void 0) { amount = 4; }
-    if (opts === void 0) { opts = {}; }
-    __checkRandomArraysErrors(amount, opts);
-    var _a = opts.max, max = _a === void 0 ? core_1.DEFAULT_RANDOM_NUMBERS_MAX : _a, _b = opts.min, min = _b === void 0 ? 0 : _b;
+    if (opts === void 0) { opts = { min: 0, max: core_1.DEFAULT_RANDOM_NUMBERS_MAX }; }
+    assertTypeOf(amount, 'number', 'amount');
+    assertTypeOf(opts.max, 'number', 'opts.max');
+    assertTypeOf(opts.min, 'number', 'opts.min');
+    assertMin(amount, 'amount', 0);
+    assertInteger(amount, 'amount');
+    var max = opts.max, min = opts.min;
     var internal = [];
     for (var i = 0; i < amount; i++) {
-        internal[internal.length] = (0, random_1.random)(max, min);
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        internal[internal.length] = random(max, min);
     }
     return internal;
 }
-exports.randomIntegers = randomIntegers;
+randomIntegers.randomIntegers = randomIntegers;
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomIntegers, 'randomIntegers', { enumerable: false });
+module.exports = randomIntegers;

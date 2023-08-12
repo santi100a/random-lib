@@ -3,7 +3,7 @@ import { randomFromArray } from './random-from-array';
 /**
  * Generates a random boolean value.
  */
-export function randomBoolean(): boolean {
+function randomBoolean(): boolean {
 	const array: AtLeastOneElement<boolean> = [
 		true,
 		true,
@@ -14,3 +14,7 @@ export function randomBoolean(): boolean {
 	];
 	return randomFromArray(array);
 }
+randomBoolean.randomBoolean = randomBoolean;
+Object?.defineProperty?.(randomBoolean, 'randomBoolean', { enumerable: false });
+
+export = randomBoolean;

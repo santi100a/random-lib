@@ -1,8 +1,7 @@
 "use strict";
-exports.__esModule = true;
-exports.randomDates = void 0;
-var assertion_lib_1 = require("@santi100/assertion-lib");
-var random_integers_1 = require("./random-integers");
+var _a;
+var assertInstanceOf = require("@santi100/assertion-lib/cjs/instance-of");
+var randomIntegers = require("./random-integers");
 /**
  * Generates `amount` random dates between `minDate` and `maxDate`.
  *
@@ -12,9 +11,9 @@ var random_integers_1 = require("./random-integers");
  * @returns An array of `Date` objects representing some random dates between `minDate` and `maxDate`.
  */
 function randomDates(minDate, maxDate, amount) {
-    (0, assertion_lib_1.assertInstanceOf)(minDate, Date);
-    (0, assertion_lib_1.assertInstanceOf)(maxDate, Date);
-    var randomTs = (0, random_integers_1.randomIntegers)(amount, {
+    assertInstanceOf(minDate, Date);
+    assertInstanceOf(maxDate, Date);
+    var randomTs = randomIntegers(amount, {
         max: maxDate.getTime(),
         min: minDate.getTime()
     });
@@ -25,4 +24,6 @@ function randomDates(minDate, maxDate, amount) {
     }
     return dates;
 }
-exports.randomDates = randomDates;
+randomDates.randomDate = randomDates;
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomDates, 'randomDates', { enumerable: false });
+module.exports = randomDates;

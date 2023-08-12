@@ -22,4 +22,4 @@ export const {
 	randomPhrase,
 	randomUUID,
 } = cjsModule;
-export default cjsModule['default'];
+export default cjsModule;

@@ -6,4 +6,8 @@ import { RandomArraysOptions } from './core';
  * @param opts See {@link RandomArraysOptions}.
  * @returns An array of random floating-point numbers.
  */
-export declare function randomFloats(amount?: number, opts?: RandomArraysOptions): number[];
+declare function randomFloats(amount?: number, opts?: RandomArraysOptions): number[];
+declare namespace randomFloats {
+    var randomFloats: typeof import("./random-floats");
+}
+export = randomFloats;
