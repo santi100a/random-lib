@@ -31,5 +31,7 @@ function randomIntegers(
 }
 
 randomIntegers.randomIntegers = randomIntegers;
-Object?.defineProperty?.(randomIntegers, 'randomIntegers', { enumerable: false });
+Object?.defineProperty?.(randomIntegers, 'randomIntegers', {
+	enumerable: false,
+});
 export = randomIntegers;

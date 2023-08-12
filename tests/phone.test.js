@@ -14,7 +14,7 @@ describe('randomPhone', () => {
 			expect(() => randomPhone(1, 3.5)).toThrow(/must be an integer/);
 			expect(() => randomPhone(43, 'not a number')).toThrow(/must be of type/);
 		});
-	}); 
+	});
 	test('happy path: the generated number matches a regex', () => {
 		const countryCode = 57;
 		const phone = randomPhone(countryCode);

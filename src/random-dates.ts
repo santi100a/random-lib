@@ -9,11 +9,7 @@ import randomIntegers = require('./random-integers');
  * @param amount The amount of dates to generate.
  * @returns An array of `Date` objects representing some random dates between `minDate` and `maxDate`.
  */
-function randomDates(
-	minDate: Date,
-	maxDate: Date,
-	amount: number
-): Date[] {
+function randomDates(minDate: Date, maxDate: Date, amount: number): Date[] {
 	assertInstanceOf(minDate, Date);
 	assertInstanceOf(maxDate, Date);
 

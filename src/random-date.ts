@@ -1,7 +1,6 @@
 import assertInstanceOf = require('@santi100/assertion-lib/cjs/instance-of');
 import random = require('./random');
 
-
 /**
  * Generates a random date between `minDate` and `maxDate`.
  *

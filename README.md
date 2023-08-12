@@ -155,28 +155,28 @@
 
 ```typescript
 // Import the most basic function...
-const { 'default': random } = require('@santi100/random-lib'); // CJS
+const { default: random } = require('@santi100/random-lib'); // CJS
 import random from '@santi100/random-lib'; // ESM/TypeScript
 
 // Or import only the functions you need from the files you need...
 
 // CJS
-const random = require('@santi100/random-lib/cjs/random'); 
-const randomFromArray = require('@santi100/random-lib/cjs/random-from-array'); 
-const randomIntegers = require('@santi100/random-lib/cjs/random-integers'); 
-const randomFloats = require('@santi100/random-lib/cjs/random-floats'); 
+const random = require('@santi100/random-lib/cjs/random');
+const randomFromArray = require('@santi100/random-lib/cjs/random-from-array');
+const randomIntegers = require('@santi100/random-lib/cjs/random-integers');
+const randomFloats = require('@santi100/random-lib/cjs/random-floats');
 
 // TypeScript
-import random = require('@santi100/random-lib/cjs/random'); 
-import randomFromArray = require('@santi100/random-lib/cjs/random-from-array'); 
-import randomIntegers = require('@santi100/random-lib/cjs/random-integers'); 
-import randomFloats = require('@santi100/random-lib/cjs/random-floats'); 
+import random = require('@santi100/random-lib/cjs/random');
+import randomFromArray = require('@santi100/random-lib/cjs/random-from-array');
+import randomIntegers = require('@santi100/random-lib/cjs/random-integers');
+import randomFloats = require('@santi100/random-lib/cjs/random-floats');
 
 // ESM
-import random from '@santi100/random-lib/cjs/random'; 
-import randomFromArray from '@santi100/random-lib/cjs/random-from-array'; 
-import randomIntegers from '@santi100/random-lib/cjs/random-integers'; 
-import randomFloats from '@santi100/random-lib/cjs/random-floats'; 
+import random from '@santi100/random-lib/cjs/random';
+import randomFromArray from '@santi100/random-lib/cjs/random-from-array';
+import randomIntegers from '@santi100/random-lib/cjs/random-integers';
+import randomFloats from '@santi100/random-lib/cjs/random-floats';
 
 // Or import only the functions you need...
 import {

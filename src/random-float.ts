@@ -1,7 +1,6 @@
 import assertTypeOf = require('@santi100/assertion-lib/cjs/type-of');
 import assertMax = require('@santi100/assertion-lib/cjs/max');
 
-
 /**
  * Returns a pseudo-random integer up to `max` (exclusive).
  * @param max The maximum value.

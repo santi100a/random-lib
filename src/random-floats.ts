@@ -4,7 +4,6 @@ import assertTypeOf = require('@santi100/assertion-lib/cjs/type-of');
 import assertInteger = require('@santi100/assertion-lib/cjs/integer');
 import assertMin = require('@santi100/assertion-lib/cjs/min');
 
-
 function __isNullOrUndefined(a: unknown) {
 	return a === null || a === undefined;
 }
@@ -28,10 +27,7 @@ function __checkRandomArraysErrors(
  * @param opts See {@link RandomArraysOptions}.
  * @returns An array of random floating-point numbers.
  */
-function randomFloats(
-	amount = 4,
-	opts: RandomArraysOptions = {}
-): number[] {
+function randomFloats(amount = 4, opts: RandomArraysOptions = {}): number[] {
 	__checkRandomArraysErrors(amount, opts);
 	const { max = DEFAULT_RANDOM_NUMBERS_MAX, min = 0 } = opts;
 	const internal = [];

@@ -17,7 +17,6 @@ function random(max: number): number;
  */
 function random(max: number, min: number): number;
 
-
 function random(max: number, min = 0): number {
 	assertTypeOf(max, 'number', 'max');
 	assertTypeOf(min, 'number', 'min');

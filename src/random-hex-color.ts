@@ -22,5 +22,7 @@ function randomHexColor(shorthand?: boolean) {
 }
 
 randomHexColor.randomHexColor = randomHexColor;
-Object?.defineProperty?.(randomHexColor, 'randomHexColor', { enumerable: false });
+Object?.defineProperty?.(randomHexColor, 'randomHexColor', {
+	enumerable: false,
+});
 export = randomHexColor;

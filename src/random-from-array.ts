@@ -47,5 +47,7 @@ function randomFromArray<T = unknown>(
 	return array[random(array.length)];
 }
 randomFromArray.randomFromArray = randomFromArray;
-Object?.defineProperty?.(randomFromArray, 'randomFromArray', { enumerable: false });
+Object?.defineProperty?.(randomFromArray, 'randomFromArray', {
+	enumerable: false,
+});
 export = randomFromArray;
