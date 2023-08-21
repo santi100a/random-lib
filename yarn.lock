@@ -685,9 +685,9 @@
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
 "@santi100/assertion-lib@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@santi100/assertion-lib/-/assertion-lib-2.0.1.tgz#8cec6f64fa54a39bbc8c56ced41b51f6843158fb"
-  integrity sha512-CP5JCaSRIxRnaciS1WPy+z0ALMHELJqx4GoXa/lH6t/dXDkKZqAJcPFCZCvURrUzbq25Vcs/C+Ac5tQ8qZzehQ==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@santi100/assertion-lib/-/assertion-lib-2.0.2.tgz#9e8fe5216a426d4c6a0f4fa644bce1b972b2df63"
+  integrity sha512-u+V6pNuXcgFvcr/ZWD7l1gifZyIDrd4dSsW/dyWO147JOxPFWcxPfDLPPTv8+O3DXILTybvRv1umvW1CS9f/SA==
 
 "@sinclair/typebox@^0.25.16":
   version "0.25.24"
