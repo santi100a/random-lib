@@ -20,7 +20,7 @@ function randomFromArray<T = unknown>(array: AtLeastOneElement<T>): T;
  */
 function randomFromArray<T = unknown>(
 	array: AtLeastOneElement<T>,
-	amount: number
+	amount: number,
 ): T[];
 /**
  * Returns a/some random item(s) from `array`.
@@ -30,7 +30,7 @@ function randomFromArray<T = unknown>(
  */
 function randomFromArray<T = unknown>(
 	array: AtLeastOneElement<T>,
-	amount = 1
+	amount = 1,
 ): T | T[] {
 	assertArray(array, 'array');
 	assertMin(array.length, 'array.length', 1);

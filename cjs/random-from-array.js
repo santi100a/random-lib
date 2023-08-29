@@ -28,5 +28,7 @@ function randomFromArray(array, amount) {
     return array[random(array.length)];
 }
 randomFromArray.randomFromArray = randomFromArray;
-(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomFromArray, 'randomFromArray', { enumerable: false });
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomFromArray, 'randomFromArray', {
+    enumerable: false
+});
 module.exports = randomFromArray;

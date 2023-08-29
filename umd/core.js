@@ -113,6 +113,6 @@ var __spreadArray =
 	exports.LETTERS = __spreadArray(
 		__spreadArray([], exports.LOWERS, true),
 		exports.UPPERS,
-		true
+		true,
 	);
 });

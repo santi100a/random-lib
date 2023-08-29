@@ -64,7 +64,7 @@ describe('randomDate and randomDates test suite', () => {
 			const maxDate = new Date('2021-12-31T23:59:59Z');
 			const randomDateObj = randomDate(minDate, maxDate);
 			expect(randomDateObj.getTimezoneOffset()).toEqual(
-				minDate.getTimezoneOffset()
+				minDate.getTimezoneOffset(),
 			);
 		});
 	});

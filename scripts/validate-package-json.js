@@ -61,7 +61,7 @@ try {
 		''.concat(e.message).includes('Invalid URL') ||
 		!''.concat(e.message).startsWith('https://')
 			? '❌ "repository.url" is invalid.'
-			: String(e)
+			: String(e),
 	);
 }
 console.log('\t ✅ Repository URL is valid: ok');
@@ -74,5 +74,5 @@ if (
 if (json.scripts.prepublish)
 	throw new Error(
 		"❌ You're not allowed to have pre-publish scripts, as they could steal the " +
-			'NPM token used for publishing.'
+			'NPM token used for publishing.',
 	);

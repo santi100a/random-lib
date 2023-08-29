@@ -29,5 +29,7 @@ function randomIntegers(amount, opts) {
     return internal;
 }
 randomIntegers.randomIntegers = randomIntegers;
-(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomIntegers, 'randomIntegers', { enumerable: false });
+(_a = Object === null || Object === void 0 ? void 0 : Object.defineProperty) === null || _a === void 0 ? void 0 : _a.call(Object, randomIntegers, 'randomIntegers', {
+    enumerable: false
+});
 module.exports = randomIntegers;

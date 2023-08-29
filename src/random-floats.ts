@@ -9,7 +9,7 @@ function __isNullOrUndefined(a: unknown) {
 }
 function __checkRandomArraysErrors(
 	amount: number,
-	opts: RandomArraysOptions
+	opts: RandomArraysOptions,
 ): void {
 	assertTypeOf(amount, 'number', 'amount');
 	if (!__isNullOrUndefined(opts.max))
