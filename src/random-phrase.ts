@@ -20,7 +20,7 @@ function randomPhrase(wordCount = 6) {
 	assertTypeOf(wordCount, 'number', 'wordCount');
 	const words = randomFromArray(
 		WORDLIST as AtLeastOneElement<string>,
-		wordCount
+		wordCount,
 	);
 	return words.join(' ');
 }

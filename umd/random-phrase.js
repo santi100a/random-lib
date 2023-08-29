@@ -25,7 +25,7 @@
 		(0, type_of_1.assertTypeOf)(wordCount, 'number', 'wordCount');
 		var words = (0, random_from_array_1.randomFromArray)(
 			core_1.WORDLIST,
-			wordCount
+			wordCount,
 		);
 		return words.join(' ');
 	}

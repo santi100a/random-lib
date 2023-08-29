@@ -87,13 +87,13 @@ export interface RandomArraysOptions {
  * An array containing all 26 English lowercase letters.
  */
 export const LOWERS = 'abcdefghijklmnopqrstuvwxyz'.split(
-	''
+	'',
 ) as AtLeastOneElement<string>;
 /**
  * An array containing all 26 English uppercase letters.
  */
 export const UPPERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(
-	''
+	'',
 ) as AtLeastOneElement<string>;
 /**
  * An array containing all 52 English letters (uppercase and lowercase).

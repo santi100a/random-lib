@@ -36,12 +36,12 @@ var __spreadArray =
 		var chars = __spreadArray(
 			__spreadArray([], '1234567890'.split(''), true),
 			core_1.LOWERS.slice(0, 5),
-			true
+			true,
 		);
 		return '#'.concat(
 			(0, random_from_array_1.randomFromArray)(chars, shorthand ? 3 : 6).join(
-				''
-			)
+				'',
+			),
 		);
 	}
 	exports.randomHexColor = randomHexColor;

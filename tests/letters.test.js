@@ -143,7 +143,7 @@ describe('randomUppers_function', () => {
 	// Tests that the function throws an error when the input amount is not a number.
 	it('test_random_uppers_throws_error_when_amount_is_not_a_number', () => {
 		expect(() => randomUppers('not a number')).toThrowError(
-			'"amount" must be of type "number". Got "not a number" of type "string".'
+			'"amount" must be of type "number". Got "not a number" of type "string".',
 		);
 	});
 	// Tests that the function returns an array of uppercase letters when given a positive integer amount.

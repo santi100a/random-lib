@@ -11,7 +11,7 @@ declare function randomPhone(countryCode: number): string;
  * @param countryCode The code of the country to which the number would belong to.
  * Must be between 1 and 999.
  * @param digitCount The amount of digits the phone number must have beside the country
- * code. All digits beyond that count will be added to the `x...` block.
+ * code. If bigger than 10, the extra digits will be added to the `x...` block.
  */
 declare function randomPhone(countryCode: number, digitCount: number): string;
 export = randomPhone;

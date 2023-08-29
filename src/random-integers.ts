@@ -13,7 +13,7 @@ import assertInteger = require('@santi100/assertion-lib/cjs/integer');
  */
 function randomIntegers(
 	amount = 4,
-	opts: RandomArraysOptions = { min: 0, max: DEFAULT_RANDOM_NUMBERS_MAX }
+	opts: RandomArraysOptions = { min: 0, max: DEFAULT_RANDOM_NUMBERS_MAX },
 ): number[] {
 	assertTypeOf(amount, 'number', 'amount');
 	assertTypeOf(opts.max, 'number', 'opts.max');
